@@ -1,0 +1,55 @@
+.section {
+  padding: 20px 20px;
+  width: 100%;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.cards-container {
+  max-width: 1080px; /* 設置最大寬度 */
+  margin: auto; /* 居中容器 */
+  overflow-x: auto; /* 增加水平滾動 */
+  white-space: nowrap; /* 防止內容換行 */
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  display: inline-block; /* 使卡片在水平滾動容器中排列 */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 350px;
+  margin: 0 10px 20px;
+  vertical-align: top; /* 對齊卡片 */
+  text-align: left;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 24px;
+  margin: 15px 10px 10px;
+}
+
+.card-description {
+  font-size: 16px;
+  margin: 0 10px 15px;
+  color: #777;
+}
