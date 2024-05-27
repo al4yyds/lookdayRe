@@ -1,5 +1,13 @@
+import ContactSection from "../componentsJSX/ContactSection";
+import FAQ from "../componentsJSX/FAQ";
+
 const Contact = () => {
-  return <div>這是客服中心頁面</div>;
+  return (
+  <div>
+    <ContactSection />
+    <FAQ />
+  </div>
+);
 };
 
 export default Contact;

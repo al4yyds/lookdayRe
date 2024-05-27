@@ -1,5 +1,11 @@
+import Favorite from "../componentsJSX/Favorite";
+
 const Wishlist = () => {
-    return <div>這是收藏頁面</div>;
+    return (
+    <div>
+      <Favorite />
+    </div>
+    );
   };
   
   export default Wishlist;
