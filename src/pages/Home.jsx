@@ -1,20 +1,20 @@
-import PicCarousel from "../componentsJSX/PicCarousel"
-import Filterbar from "../componentsJSX/Filterbar"
-import PromotionSection from "../componentsJSX/PromotionSection"
-import Rank from "../componentsJSX/Rank"
-import Footer from "../componentsJSX/Footer"
+import PicCarousel from "../componentsJSX/PicCarousel";
+import Filterbar from "../componentsJSX/Filterbar";
+import PromotionSection from "../componentsJSX/PromotionSection";
+import Rank from "../componentsJSX/Rank";
+import Footer from "../componentsJSX/Footer";
 
 const Home = () => {
+  // const islogin=true;
   return (
     <>
-        <PicCarousel />
-        <Filterbar />
-        <PromotionSection />
-        <Rank />
-        <Footer />
+      {/* {islogin&&()} */}
+      <PicCarousel />
+      <Filterbar />
+      <PromotionSection />
+      <Rank />
     </>
+  );
+};
 
-  )
-}
-
-export default Home
+export default Home;

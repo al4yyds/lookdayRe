@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom';
-import Titlebar from './Titlebar';
-import Footer from './Footer';
-import './RootLayout.css'; // 確保引入了 CSS 文件
+import { Outlet } from "react-router-dom";
+import Titlebar from "./Titlebar";
+import Footer from "./Footer";
+// import "./RootLayout.scss"; // 確保引入了 CSS 文件
 
 const RootLayout = () => {
   return (

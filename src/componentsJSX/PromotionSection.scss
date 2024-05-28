@@ -1,13 +1,16 @@
 .section {
   padding: 20px 20px;
-  width: 100%;
+  width: 1080px;
   background-color: #f9f9f9;
   text-align: center;
+  white-space: nowrap; /* 防止內容換行 */
 }
 
 .title {
   font-size: 36px;
   margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
 }
 
 .subtitle {
@@ -17,39 +20,53 @@
 }
 
 .cards-container {
+  width: 1080px;
   max-width: 1080px; /* 設置最大寬度 */
   margin: auto; /* 居中容器 */
   overflow-x: auto; /* 增加水平滾動 */
   white-space: nowrap; /* 防止內容換行 */
   display: flex;
   justify-content: space-between;
+  gap: 20px; /* 增加卡片之间的间距 */
+  padding-bottom: 20px; /* 增加底部间距 */
 }
 
 .card {
   display: inline-block; /* 使卡片在水平滾動容器中排列 */
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 350px;
+  width: 300px;
   margin: 0 10px 20px;
   vertical-align: top; /* 對齊卡片 */
   text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+  cursor: pointer; /* 鼠标指针样式 */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* 悬停时上移 */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* 悬停时增加阴影 */
 }
 
 .image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 5px solid #ff6f61; /* 添加底部边框 */
 }
 
 .card-title {
   font-size: 24px;
   margin: 15px 10px 10px;
+  color: #ff6f61;
+  font-weight: bold;
 }
 
 .card-description {
   font-size: 16px;
   margin: 0 10px 15px;
   color: #777;
+  line-height: 1.6; /* 增加行间距 */
 }

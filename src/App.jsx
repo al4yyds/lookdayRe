@@ -6,19 +6,22 @@ import Wishlist from "./pages/Wishlist";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import RootLayout from "./componentsJSX/RootLayout";
 
 const App = () => {
   return (
     <Router>
       <div className="root-layout">
-        <Titlebar />
+        {/* <Titlebar /> */}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route element={<RootLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
         </Routes>
       </div>
     </Router>
