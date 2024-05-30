@@ -2,7 +2,7 @@ import PicCarousel from "../componentsJSX/PicCarousel";
 import Filterbar from "../componentsJSX/Filterbar";
 import PromotionSection from "../componentsJSX/PromotionSection";
 import Rank from "../componentsJSX/Rank";
-import Footer from "../componentsJSX/Footer";
+import Area from "../componentsJSX/Area";
 
 const Home = () => {
   // const islogin=true;
@@ -13,6 +13,7 @@ const Home = () => {
       <Filterbar />
       <PromotionSection />
       <Rank />
+      <Area />
     </>
   );
 };
