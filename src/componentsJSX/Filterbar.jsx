@@ -1,4 +1,4 @@
-import './Filterbar.scss'; // 导入样式文件
+import './Filterbar.scss';
 
 const FilterBar = () => {
   return (

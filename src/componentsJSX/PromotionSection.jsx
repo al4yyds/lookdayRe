@@ -23,19 +23,21 @@ const promotions = [
 
 const PromotionSection = () => {
   return (
-    <section className="section">
+    <section className="promotion-section">
       <h2 className="title">強檔活動</h2>
       <p className="subtitle">
         不要錯過我們最新的促銷活動，享受驚人的折扣和優惠！
       </p>
 
-      {promotions.map((promo, index) => (
-        <div key={index} className="card">
-          <img src={promo.image} alt={promo.title} className="image" />
-          <h3 className="card-title">{promo.title}</h3>
-          <p className="card-description">{promo.description}</p>
-        </div>
-      ))}
+      <div className="cards-container">
+        {promotions.map((promo, index) => (
+          <div key={index} className="card">
+            <img src={promo.image} alt={promo.title} className="image" />
+            <h3 className="card-title">{promo.title}</h3>
+            <p className="card-description">{promo.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

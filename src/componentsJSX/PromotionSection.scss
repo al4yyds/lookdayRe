@@ -1,9 +1,10 @@
-.section {
-  padding: 20px 20px;
-  width: 1080px;
+.promotion-section {
+  padding: 20px;
+  width: 100%;
+  max-width: 1080px;
   background-color: #f9f9f9;
   text-align: center;
-  white-space: nowrap; /* 防止內容換行 */
+  margin: 0 auto; /* 居中顯示 */
 }
 
 .title {
@@ -20,26 +21,21 @@
 }
 
 .cards-container {
-  width: 1080px;
-  max-width: 1080px; /* 設置最大寬度 */
-  margin: auto; /* 居中容器 */
-  overflow-x: auto; /* 增加水平滾動 */
-  white-space: nowrap; /* 防止內容換行 */
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; /* 確保在小屏幕上也能正常顯示 */
   gap: 20px; /* 增加卡片之间的间距 */
   padding-bottom: 20px; /* 增加底部间距 */
 }
 
 .card {
-  display: inline-block; /* 使卡片在水平滾動容器中排列 */
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 300px;
-  margin: 0 10px 20px;
-  vertical-align: top; /* 對齊卡片 */
+  width: 100%;
+  max-width: 300px; /* 每個卡片的最大寬度 */
+  margin: 0 auto; /* 確保卡片在小屏幕上居中 */
   text-align: left;
   transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
   cursor: pointer; /* 鼠标指针样式 */

@@ -13,7 +13,7 @@ const Area = () => {
   return (
     <section className="area-section">
       <h2 className="area-title">旅遊地區</h2>
-      <div className="cards-container">
+      <div className="area-cards-container">
         {areas.map(area => (
           <div key={area.id} className="area-card">
             <img src={area.imageUrl} alt={area.name} className="area-image" />

@@ -1,75 +1,80 @@
 .area-section {
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden; /* 隐藏溢出部分 */
-  }
-  
+  padding: 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+  max-width: 1080px;
+  margin: 0 auto; /* 居中顯示 */
+
   .area-title {
-    font-size: 36px;
-    margin-bottom: 30px;
+    font-size: 2rem;
     color: #333;
+    margin-bottom: 20px;
   }
-  
-  .cards-container {
+
+  .area-cards-container {
     display: flex;
-    justify-content: center; /* 中心对齐 */
-    align-items: center; /* 垂直居中 */
-    gap: 20px;
-    width: 100%;
-    max-width: 1080px; /* 最大宽度 */
-    margin: 0 auto; /* 居中容器 */
-    box-sizing: border-box;
-    overflow: hidden; /* 隐藏溢出部分 */
-  }
-  
-  .area-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    height: 250px; /* 固定高度 */
-    transition: transform 0.3s, box-shadow 0.3s; /* 添加宽度过渡 */
-    cursor: pointer; /* 鼠标指针样式 */
-    flex: 1 1 15%; /* 使卡片根据容器宽度调整 */
-    min-width: 150px; /* 设置最小宽度，防止过小 */
-    max-width: 250px; /* 设置最大宽度 */
-  }
-  
-  .area-card:hover {
-    transform: translateY(-5px); /* 悬停时上移 */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* 悬停时增加阴影 */
-  }
-  
-  .area-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .area-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s;
+    gap: 20px;
   }
-  
-  .area-card:hover .area-overlay {
-    opacity: 1;
+
+  .area-card {
+    position: relative;
+    width: calc(33.333% - 20px); /* 三等分，減去間距 */
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .area-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .area-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .area-name {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    &:hover .area-overlay {
+      opacity: 1;
+    }
   }
-  
-  .area-name {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
+
+  @media (max-width: 900px) {
+    .area-card {
+      width: calc(50% - 20px); /* 平板屏幕上，每行顯示兩個 */
+    }
   }
-  
+
+  @media (max-width: 600px) {
+    .area-card {
+      width: calc(100% - 20px); /* 手機屏幕上，每行顯示一個 */
+    }
+  }
+}
