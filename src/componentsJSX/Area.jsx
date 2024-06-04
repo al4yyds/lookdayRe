@@ -1,6 +1,9 @@
 import './Area.scss';
+// import { useHistory } from 'react-router-dom';
+
 
 const Area = () => {
+
   const areas = [
     { id: 1, name: '臺北', imageUrl: '/src/assets/images/areas/taipei.jpg' },
     { id: 2, name: '臺中', imageUrl: '/src/assets/images/areas/taichung.jpg' },
@@ -9,13 +12,19 @@ const Area = () => {
     { id: 5, name: '宜蘭', imageUrl: '/src/assets/images/areas/yilan.jpg' },
     { id: 6, name: '花蓮', imageUrl: '/src/assets/images/areas/hualien.jpg' },
   ];
+  
+const handleAreaClick = (areaName) => {
+  // 使用傳入的 areaName 參數來導航
+  console.log(areaName);
+  history.push(`/search?query=${areaName}`);
+};
 
   return (
     <section className="area-section">
       <h2 className="area-title">旅遊地區</h2>
       <div className="area-cards-container">
         {areas.map(area => (
-          <div key={area.id} className="area-card">
+          <div key={area.id} className="area-card" onClick={() => handleAreaClick(area.name)}>
             <img src={area.imageUrl} alt={area.name} className="area-image" />
             <div className="area-overlay">
               <div className="area-name">{area.name}</div>
