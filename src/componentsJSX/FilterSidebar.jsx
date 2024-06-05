@@ -1,3 +1,4 @@
+import React from 'react';
 import './FilterSidebar.scss';
 
 const FilterSidebar = ({ setFilters }) => {
@@ -18,6 +19,16 @@ const FilterSidebar = ({ setFilters }) => {
           }
         }
       }
+
+      // 更新 URL 的查詢參數
+      const searchParams = new URLSearchParams(window.location.search);
+      for (const key in updatedFilters) {
+        searchParams.delete(key);
+        updatedFilters[key].forEach(filterValue => searchParams.append(key, filterValue));
+      }
+      const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+      window.history.pushState({}, '', newUrl);
+
       return updatedFilters;
     });
   };
@@ -28,24 +39,27 @@ const FilterSidebar = ({ setFilters }) => {
       <div className="filter-category">
         <span>主題樂園</span>
       </div>
-      <button className="clear-filters" onClick={() => setFilters({})}>清空選項</button>
+      <button className="clear-filters" onClick={() => {
+        setFilters({});
+        window.history.pushState({}, '', window.location.pathname); // 清空查詢參數
+      }}>清空選項</button>
       <div className="filter-group">
         <h3>目的地</h3>
         <label>
-          <input type="checkbox" name="location" value="臺北" onChange={handleFilterChange} />
-          臺北
+          <input type="checkbox" name="location" value="台北" onChange={handleFilterChange} />
+          台北
         </label>
         <label>
-          <input type="checkbox" name="location" value="臺中" onChange={handleFilterChange} />
-          臺中
+          <input type="checkbox" name="location" value="台中" onChange={handleFilterChange} />
+          台中
         </label>
         <label>
           <input type="checkbox" name="location" value="高雄" onChange={handleFilterChange} />
           高雄
         </label>
         <label>
-          <input type="checkbox" name="location" value="臺南" onChange={handleFilterChange} />
-          臺南
+          <input type="checkbox" name="location" value="台南" onChange={handleFilterChange} />
+          台南
         </label>
         <label>
           <input type="checkbox" name="location" value="宜蘭" onChange={handleFilterChange} />

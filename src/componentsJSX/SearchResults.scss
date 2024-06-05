@@ -50,6 +50,16 @@
         font-size: 1rem;
         color: white;
       }
+
+      
     }
   }
 }
+.search-result-item:hover {
+  transition: transform 0.3s ease-in-out; /* 添加平滑過渡效果 */
+  // transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 添加漂浮陰影效果 */
+  transform: translateY(-7px); /* 將卡片向上移動 */
+  cursor: pointer;
+}
+
