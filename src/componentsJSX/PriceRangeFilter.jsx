@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Range, getTrackBackground } from 'react-range';
+import { Range, getTrackBackground } from 'react-range';
 import './PriceRangeFilter.scss';
 
 const PriceRangeFilter = ({ setPriceRange }) => {
