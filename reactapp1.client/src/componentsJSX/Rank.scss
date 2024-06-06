@@ -86,12 +86,34 @@
   flex-grow: 1;
   text-align: left;
   color: #555;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .description {
     font-size: 12px;
     color:#ff6f61;
+}
+
+.activity-image {
+    width: 120px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.image-container {
+    position: relative;
+}
+
+
+.rank-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 12px;
 }
 
 

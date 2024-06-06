@@ -79,7 +79,6 @@ const Rank = () => {
         );
     }
 
-
     // ´è¬V±Æ¦W¦Cªí
     return (
         <section className="sectionRank">
@@ -95,9 +94,18 @@ const Rank = () => {
                         <div key={index} className="product-ranking">
                             <h2>Top {index + 1}: {ranklist.cityName}</h2>
                             <ul>
-                                {ranklist.activities.map((product, productIndex) => (
+                                {ranklist.activities.slice(0, 3).map((product, productIndex) => (
                                     <li key={product.activityId} className="product-item">
-                                        <span className="rank">#{productIndex + 1}</span>
+                                        {product.albums && product.albums.length > 0 && (
+                                            <div className="image-container">
+                                                <img
+                                                    src={`data:image/jpeg;base64,${product.albums[0]}`}
+                                                    alt={product.name}
+                                                    className="activity-image"
+                                                />
+                                                <span className="rank-overlay">No.{productIndex + 1}</span>
+                                            </div>
+                                        )}
                                         <span className="name">{product.name}<br />
                                             <span className="description">{product.description}</span>
                                         </span>

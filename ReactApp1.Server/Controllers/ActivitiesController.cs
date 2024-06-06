@@ -3,6 +3,7 @@ using ReactApp1.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 
 // 設定路由為 "api/Activities"
 [Route("api/[controller]")]
@@ -93,7 +94,8 @@ public class ActivitiesController : ControllerBase
             // 獲取最受歡迎的活動資料
               var topBookedActivities = _context.Bookings
              .Include(b => b.Activity) // 加載與預訂相關的活動數據
-             .ThenInclude(a => a.City) // 加載與活動相關的城市數據
+                .ThenInclude(a=>a.ActivitiesAlbums)
+             .Include(b => b.Activity.City) // 加載與活動相關的城市數據
              .GroupBy(b => new { b.Activity.ActivityId, b.Activity.Name, b.Activity.Description, b.Activity.City.CityId, b.Activity.City.CityName })
              .Select(g => new
              {
@@ -102,7 +104,10 @@ public class ActivitiesController : ControllerBase
                  Description = g.Key.Description, // 活動描述
                  BookingCount = g.Count(), // 預訂次數，即分組中的記錄數
                  CityId = g.Key.CityId, // 城市ID
-                 CityName = g.Key.CityName // 城市名稱
+                 CityName = g.Key.CityName, // 城市名稱
+                 Albums = g.SelectMany(b => b.Activity.ActivitiesAlbums)
+                 .Select(album=>album.Photo!=null?Convert.ToBase64String(album.Photo) : null)
+                 .ToList()
              })
              .OrderByDescending(a => a.BookingCount) // 根據預訂次數排序
              .Take(10) // 取前10個活動
