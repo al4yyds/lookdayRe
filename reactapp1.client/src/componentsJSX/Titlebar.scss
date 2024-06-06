@@ -1,0 +1,101 @@
+/* 重置基本樣式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .root-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .titlebar-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #ffffff; /* 白色背景 */
+    padding: 10px 0;
+  }
+  
+  .titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 20px;
+    color: #f48414; /* 橘色文字 */
+  }
+  
+  .titlebar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .titlebar-left .logo {
+    width: 40px; /* 調整 LOGO 圖片寬度 */
+    margin-right: 10px; /* 調整 LOGO 圖片與文字之間的間距 */
+  }
+  
+  .company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #f48414; /* 橘色文字 */
+    font-family: 'Helvetica', Arial, sans-serif;
+    margin-right: 20px;
+  }
+  
+  .search-bar {
+    width: 250px;
+    height: 35px;
+    padding: 5px 10px;
+    border: 2px solid #f48414;
+    border-radius: 25px;
+    background-color: #f0f0f0; /* 淺灰色背景 */
+    margin-right: 20px;
+    color: #333; /* 深色文字 */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    background-color: #ffffff;
+    border-color: #f48414; /* 聚焦時的邊框顏色 */
+    outline: none;
+  }
+  
+  .titlebar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .titlebar-button {
+    background-color: transparent;
+    color: #f48414; /* 橘色文字 */
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Microsoft JhengHei', '黑體', sans-serif;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .titlebar-button:hover {
+    background-color: #f48414; /* 滑鼠懸停時 */
+    color: #ffffff; /* 滑鼠懸停時的文字顏色 */
+  }
+  

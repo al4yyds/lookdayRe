@@ -1,0 +1,68 @@
+.promotion-section {
+  padding: 20px;
+  width: 100%;
+  max-width: 1080px;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin: 0 auto; /* 居中顯示 */
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* 確保在小屏幕上也能正常顯示 */
+  gap: 20px; /* 增加卡片之间的间距 */
+  padding-bottom: 20px; /* 增加底部间距 */
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px; /* 每個卡片的最大寬度 */
+  margin: 0 auto; /* 確保卡片在小屏幕上居中 */
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+  cursor: pointer; /* 鼠标指针样式 */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* 悬停时上移 */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* 悬停时增加阴影 */
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 5px solid #ff6f61; /* 添加底部边框 */
+}
+
+.card-title {
+  font-size: 24px;
+  margin: 15px 10px 10px;
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+.card-description {
+  font-size: 16px;
+  margin: 0 10px 15px;
+  color: #777;
+  line-height: 1.6; /* 增加行间距 */
+}
