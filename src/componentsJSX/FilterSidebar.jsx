@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PriceRangeFilter from './PriceRangeFilter';
 import './FilterSidebar.scss';
 
 const FilterSidebar = ({ setFilters }) => {
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(20000);
+
   const handleFilterChange = (e) => {
     const { name, value, checked } = e.target;
     setFilters(prevFilters => {
@@ -19,18 +23,17 @@ const FilterSidebar = ({ setFilters }) => {
           }
         }
       }
-
-      // 更新 URL 的查詢參數
-      const searchParams = new URLSearchParams(window.location.search);
-      for (const key in updatedFilters) {
-        searchParams.delete(key);
-        updatedFilters[key].forEach(filterValue => searchParams.append(key, filterValue));
-      }
-      const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
-      window.history.pushState({}, '', newUrl);
-
       return updatedFilters;
     });
+  };
+
+  const handlePriceRangeChange = ({ min, max }) => {
+    setMinPrice(min);
+    setMaxPrice(max);
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      priceRange: { min, max }
+    }));
   };
 
   return (
@@ -41,7 +44,8 @@ const FilterSidebar = ({ setFilters }) => {
       </div>
       <button className="clear-filters" onClick={() => {
         setFilters({});
-        window.history.pushState({}, '', window.location.pathname); // 清空查詢參數
+        setMinPrice(0);
+        setMaxPrice(20000);
       }}>清空選項</button>
       <div className="filter-group">
         <h3>目的地</h3>
@@ -66,6 +70,7 @@ const FilterSidebar = ({ setFilters }) => {
           宜蘭
         </label>
       </div>
+      <PriceRangeFilter setPriceRange={handlePriceRangeChange} />
     </div>
   );
 };

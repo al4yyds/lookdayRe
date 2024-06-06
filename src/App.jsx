@@ -7,6 +7,7 @@ import RootLayout from "./componentsJSX/RootLayout";
 import Search from "./pages/Search";
 import Favorite from "./pages/Favorite";
 import Cart from "./pages/Cart";
+import ProductPage from "./pages/ProductPage";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/productpage/:id" element={<ProductPage />} />
         </Route>
       </Routes>
     </Router>
