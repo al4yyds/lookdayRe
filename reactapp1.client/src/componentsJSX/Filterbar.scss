@@ -3,10 +3,10 @@
     height: 50px; /* 调整整体高度为 50px */
     display: flex;
     justify-content: space-around;
-    align-items: center;
+/*    align-items: center;*/
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
     padding: 0 20px;
     box-sizing: border-box;
     margin: 0 auto; /* 居中顯示 */
@@ -14,7 +14,7 @@
 
 .filter-item {
     position: relative;
-    height: 50px; /* 设置高度为 50px */
+    height: 40px; /* 设置高度为 50px -->因為空隙大選單會消失太快點不到 改為40 */
 }
 
 .filter-button {
@@ -67,6 +67,7 @@
 
 .filter-item:hover .dropdown-menu.grid {
     display: grid;
+
 }
 
 .location {

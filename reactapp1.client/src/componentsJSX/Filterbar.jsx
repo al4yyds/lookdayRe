@@ -51,6 +51,8 @@ const FilterBar = () => {
                     { imgSrc: "/src/assets/images/areas/tainan.jpg", label: "台南" },
                     { imgSrc: "/src/assets/images/areas/yilan.jpg", label: "宜蘭" },
                     { imgSrc: "/src/assets/images/areas/yuling.jpg", label: "雲林" },
+                    { imgSrc: "/src/assets/images/areas/pingdon.jpg", label: "屏東" },
+                    { imgSrc: "/src/assets/images/areas/kaohsiung.jpg", label: "高雄" },
                 ]} />
             </FilterItem>
             <FilterItem title="全部分類" isGrid={false}>
