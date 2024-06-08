@@ -3,6 +3,7 @@ import Filterbar from "../componentsJSX/Filterbar";
 import PromotionSection from "../componentsJSX/PromotionSection";
 import Rank from "../componentsJSX/Rank";
 import Area from "../componentsJSX/Area";
+import Bot from "../componentsJSX/bot";
 
 
 const Home = () => {
@@ -14,7 +15,8 @@ const Home = () => {
       <Filterbar />
       <PromotionSection />
       <Rank />
-      <Area />
+          <Area />
+          <Bot />
     </>
   );
 };
