@@ -1,0 +1,33 @@
+
+     .chat-button {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        cursor: pointer;
+    }
+
+.chat-window {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column; // 使用 flex 布局
+    z-index: 1000;
+    overflow: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+#webchat {
+    flex: 1; // 使聊天內容區域擴展以填滿可用空間
+    overflow: auto;
+}
+
+.webchat__send-box {
+    border-top: 1px solid #ccc;
+    border-radius:5px;
+}
+
+
