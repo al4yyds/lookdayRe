@@ -1,16 +1,18 @@
 .sectionRank {
-  padding: 20px;
-  width: 100%;
-  max-width: 1080px;
-  background-color: #ffffff;
-  text-align: center;
-  margin: 0 auto; /* 居中顯示 */
+    padding: 20px;
+    width: 100%;
+    max-width: 1080px;
+    background-color: #ffffff;
+    text-align: center;
+    margin: 0 auto; /* 居中顯示 */
+    font-family: 'Noto Sans TC','Microsoft JhengHei',sans-serif;
 }
 
 .rank-title {
   font-size: 36px;
   margin-bottom: 20px;
   color: #333;
+  font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;
 }
 
 .rank-subtitle {
@@ -115,5 +117,7 @@
     border-radius: 5px;
     font-size: 12px;
 }
-
+.body {
+    font-family: 'Noto Sans', 'Arial', 'Microsoft JhengHei', 'Heiti TC', 'sans-serif';
+}
 

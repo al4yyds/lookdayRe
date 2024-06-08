@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Filterbar.scss';
 
 const FilterItem = ({ title, children, isGrid }) => {
@@ -15,10 +16,16 @@ const FilterItem = ({ title, children, isGrid }) => {
 };
 
 const GridDropdownMenu = ({ items }) => {
+    const navigate = useNavigate();
+
+    const handleItemClick = (label) => {
+        navigate(`/search?query=${label}`);
+    };
+
     return (
         <ul className="dropdown-menu grid">
             {items.map((item, index) => (
-                <li key={index} className="location">
+                <li key={index} className="location" onClick={() => handleItemClick(item.label)}>
                     {item.imgSrc && <img src={item.imgSrc} alt={item.label} />}
                     <a href="#">{item.label}</a>
                 </li>

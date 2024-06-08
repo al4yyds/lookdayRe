@@ -1,50 +1,50 @@
-import React, { useEffect, useState } from 'react';
+ï»¿import React, { useEffect, useState } from 'react';
 import './Rank.scss';
 
-// ©w¸q Rank ²Õ¥ó
+// å®šç¾© Rank çµ„ä»¶
 const Rank = () => {
-    // «Å§iª¬ºAÅÜ¼Æ ranklists¡Bloading ©M error
+    // å®£å‘Šç‹€æ…‹è®Šæ•¸ ranklistsã€loading å’Œ error
     const [ranklists, setRanklists] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // ¨Ï¥Î useEffect ¹_¤l¦b²Õ¥ó±¾¸ü«á°õ¦æ°Æ§@¥Î
+    // ä½¿ç”¨ useEffect é‰¤å­åœ¨çµ„ä»¶æ›è¼‰å¾ŒåŸ·è¡Œå‰¯ä½œç”¨
     useEffect(() => {
-        // ©w¸q²§¨B¨ç¼Æ¨ÓÀò¨ú³Ì¼öªùªº¬¡°Ê
+        // å®šç¾©ç•°æ­¥å‡½æ•¸ä¾†ç²å–æœ€ç†±é–€çš„æ´»å‹•
         const fetchTopBookedActivities = async () => {
             try {
-                // ±q«ü©wªº API Àò¨ú¼Æ¾Ú
+                // å¾æŒ‡å®šçš„ API ç²å–æ•¸æ“š
                 const response = await fetch('https://localhost:7090/api/activities/top-booked');
                 if (!response.ok) {
-                    // ¦pªGÅTÀ³¤£¥¿±`¡A©ß¥X¿ù»~
+                    // å¦‚æœéŸ¿æ‡‰ä¸æ­£å¸¸ï¼Œæ‹‹å‡ºéŒ¯èª¤
                     throw new Error('Network response was not ok');
                 }
-                // ¸ÑªR JSON ¼Æ¾Ú
+                // è§£æ JSON æ•¸æ“š
                 const data = await response.json();
                 console.log('API response data:', data);
-                // ±N¼Æ¾Ú¤À²Õ
+                // å°‡æ•¸æ“šåˆ†çµ„
                 const groupedData = groupDataByCity(data);
                 console.log('Grouped data:', groupedData);
-                // §ó·sª¬ºA
+                // æ›´æ–°ç‹€æ…‹
                 setRanklists(groupedData);
                 setLoading(false);
             } catch (error) {
-                // ³B²z¿ù»~
+                // è™•ç†éŒ¯èª¤
                 console.error('Error fetching top booked activities:', error);
                 setError(error.message);
                 setLoading(false);
             }
         };
 
-        // ½Õ¥ÎÀò¨ú¼Æ¾Úªº¨ç¼Æ
+        // èª¿ç”¨ç²å–æ•¸æ“šçš„å‡½æ•¸
         fetchTopBookedActivities();
-    }, []); // ªÅ¨Ì¿à¼Æ²Õªí¥Ü³o­Ó effect ¥u·|¦b²Õ¥ó±¾¸ü©M¨ø¸ü®É°õ¦æ¤@¦¸
+    }, []); // ç©ºä¾è³´æ•¸çµ„è¡¨ç¤ºé€™å€‹ effect åªæœƒåœ¨çµ„ä»¶æ›è¼‰å’Œå¸è¼‰æ™‚åŸ·è¡Œä¸€æ¬¡
 
-    // ©w¸q¨ç¼Æ¨Ó®Ú¾Ú City ID ±N¼Æ¾Ú¤À²Õ
+    // å®šç¾©å‡½æ•¸ä¾†æ ¹æ“š City ID å°‡æ•¸æ“šåˆ†çµ„
     const groupDataByCity = (data) => {
         const grouped = data.reduce((acc, activity) => {
             const cityId = activity.cityId;
-            const cityName = activity.cityName; // °²³]ªğ¦^¼Æ¾Ú¤¤¥]§t cityName
+            const cityName = activity.cityName; // å‡è¨­è¿”å›æ•¸æ“šä¸­åŒ…å« cityName
             if (!acc[cityId]) {
                 acc[cityId] = {
                     cityName: cityName,
@@ -55,11 +55,11 @@ const Rank = () => {
             return acc;
         }, {});
 
-        // Âà´«¤À²Õµ²ªG¨Ã¥u¨ú«e¤T­Ó¤À²Õ
+        // è½‰æ›åˆ†çµ„çµæœä¸¦åªå–å‰ä¸‰å€‹åˆ†çµ„
         return Object.values(grouped).slice(0, 3);
     };
 
-    // ¦pªG¥¿¦b¥[¸ü¡AÅã¥Ü¥[¸ü«ü¥Ü¾¹
+    // å¦‚æœæ­£åœ¨åŠ è¼‰ï¼Œé¡¯ç¤ºåŠ è¼‰æŒ‡ç¤ºå™¨
     if (loading) {
         return (
             <div className="loading-container">
@@ -69,7 +69,7 @@ const Rank = () => {
         );
     }
 
-    // ¦pªG¥X²{¿ù»~¡AÅã¥Ü¿ù»~«H®§©M­«¸Õ«ö¶s
+    // å¦‚æœå‡ºç¾éŒ¯èª¤ï¼Œé¡¯ç¤ºéŒ¯èª¤ä¿¡æ¯å’Œé‡è©¦æŒ‰éˆ•
     if (error) {
         return (
             <div className="error-container">
@@ -78,18 +78,18 @@ const Rank = () => {
             </div>
         );
     }
-
-    // ´è¬V±Æ¦W¦Cªí
+    // æ¸²æŸ“æ’ååˆ—è¡¨
     return (
         <section className="sectionRank">
-            <h2 className="rank-title">Top Ranked Products</h2>
-            <p className="rank-subtitle">Explore our most popular products.</p>
+            <h2 className="rank-title">ç†±é–€æ’è¡Œæ¦œ</h2>
+
+            <p className="rank-subtitle">æ¢ç´¢æˆ‘å€‘æœ€å—æ­¡è¿çš„ç”¢å“ !</p>
             <div className="product-rankings">
                 {ranklists.length === 0 ? (
-                    // ¦pªG¨S¦³¼Æ¾Ú¡AÅã¥Ü´£¥Ü«H®§
+                    // å¦‚æœæ²’æœ‰æ•¸æ“šï¼Œé¡¯ç¤ºæç¤ºä¿¡æ¯
                     <p>No data available</p>
                 ) : (
-                    // ¹M¾ú±Æ¦W¦Cªí¨Ã´è¬V¨C­Ó¤À²Õ
+                    // éæ­·æ’ååˆ—è¡¨ä¸¦æ¸²æŸ“æ¯å€‹åˆ†çµ„
                     ranklists.map((ranklist, index) => (
                         <div key={index} className="product-ranking">
                             <h2>Top {index + 1}: {ranklist.cityName}</h2>
@@ -118,8 +118,9 @@ const Rank = () => {
                 )}
             </div>
         </section>
+
     );
 };
 
-// ¶×¥X Rank ²Õ¥ó
+// åŒ¯å‡º Rank çµ„ä»¶
 export default Rank;
