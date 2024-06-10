@@ -28,6 +28,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddDbContext<lookdaysContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// ²K¥[ HttpClient ªA°È
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
 app.UseDefaultFiles();

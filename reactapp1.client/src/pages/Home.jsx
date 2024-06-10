@@ -4,6 +4,7 @@ import PromotionSection from "../componentsJSX/PromotionSection";
 import Rank from "../componentsJSX/Rank";
 import Area from "../componentsJSX/Area";
 import Bot from "../componentsJSX/bot";
+import Weather from "../componentsJSX/Weather";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
       <Rank />
           <Area />
           <Bot />
+          <Weather />
     </>
   );
 };
