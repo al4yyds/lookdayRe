@@ -201,7 +201,9 @@ const Weather = () => {
                         <thead>
                             <tr>
                                 <th>時間</th>
-                                {Array.from(new Set(location.weatherDetails.map(detail => detail.startTime.split(' ')[0]))).map((date, idx) => (
+                                {Array.from(new Set(location.weatherDetails.map(detail => detail.startTime.split(' ')[0])))
+                                    .slice(0, 7)
+                                    .map((date, idx) => (
                                     <th key={idx}>{getWeekday(date)}</th>
                                 ))}
                             </tr>
@@ -210,7 +212,9 @@ const Weather = () => {
                             {['白天', '晚上'].map((timePeriod, idx) => (
                                 <tr key={idx}>
                                     <td>{timePeriod}</td>
-                                    {location.weatherDetails.filter(detail => formatTimePeriod(detail.startTime) === timePeriod).map((detail, idx) => (
+                                    {location.weatherDetails.filter(detail => formatTimePeriod(detail.startTime) === timePeriod)
+                                        .slice(0, 7)
+                                        .map((detail, idx) => (
                                         <td key={idx}>
                                             <p>{detail.weatherDescription}</p>
                                             <img src={getWeatherImage(detail.weatherDescription)} alt={detail.weatherDescription} />
