@@ -1,14 +1,26 @@
+import React, { useState, useEffect } from 'react';
 import './FavoriteProducts.scss';
 
 const FavoriteProducts = () => {
-  const products = [
-    { id: 1, image: 'https://via.placeholder.com/300', title: '商品 1', price: 100 },
-    { id: 2, image: 'https://via.placeholder.com/300', title: '商品 2', price: 200 },
-    { id: 3, image: 'https://via.placeholder.com/300', title: '商品 3', price: 300 },
-    { id: 4, image: 'https://via.placeholder.com/300', title: '商品 4', price: 400 },
-    { id: 5, image: 'https://via.placeholder.com/300', title: '商品 5', price: 500 },
-    { id: 6, image: 'https://via.placeholder.com/300', title: '商品 6', price: 600 },
-  ];
+  const [products, setProducts] = useState([]);
+  const userId = 2; // 替换为实际的用户ID
+
+  useEffect(() => {
+    const fetchFavoriteProducts = async () => {
+      try {
+        const response = await fetch(`https://localhost:7148/api/Favorites/favorites?userId=${userId}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching favorite products:', error);
+      }
+    };
+console.log('products',products);
+    fetchFavoriteProducts();
+  }, [userId]);
 
   return (
     <div className="favorite-products">
@@ -19,9 +31,11 @@ const FavoriteProducts = () => {
       <div className="product-list">
         {products.map(product => (
           <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.title} />
+            {/* 假设 Image 属性存在 */}
+            <img src={`data:image/png;base64,${product.image}`} alt={product.title} />
             <div className="product-info">
               <h2>{product.title}</h2>
+              <p>活動詳情: {product.desc}</p>
               <p className="price">NT$ {product.price}</p>
             </div>
           </div>

@@ -1,10 +1,10 @@
-// PriceRangeFilter.scss
 .price-range-filter {
   padding: 16px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 16px;
+  width: 100%; /* 确保过滤器组件的宽度与父容器一致 */
 
   h3 {
     font-size: 1.2em;
