@@ -31,6 +31,13 @@ builder.Services.AddDbContext<lookdaysContext>(options =>
 // 添加 HttpClient 服務
 builder.Services.AddHttpClient();
 
+
+// 注入 ECPay 配置
+builder.Services.Configure<ECPayOptions>(builder.Configuration.GetSection("ECPay"));
+builder.Services.AddSingleton<ECPayService>();
+
+
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
