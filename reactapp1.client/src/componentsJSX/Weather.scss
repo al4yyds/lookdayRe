@@ -1,0 +1,55 @@
+﻿/* Weather.scss */
+
+.weather-container {
+    max-width: 600px;
+/*        margin: 0 auto; // 取消注释，使容器居中*/
+    padding: 20px;
+    font-family: Arial, sans-serif;
+
+    th, td {
+        width:500px;
+        height:150px;
+        }
+
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 180%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+.weather-table {
+    width: 180%; // 改为100%，更符合通常的设计习惯
+/*    border-collapse: collapse; // 取消注释，使表格边框合并*/
+
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        border-radius: 5px; // 改为5px，更符合表格的设计
+        word-wrap: break-word;
+        font-size: 16px;
+    }
+
+    th {
+        background-color:gainsboro;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
