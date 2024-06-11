@@ -3,9 +3,6 @@ import PriceRangeFilter from './PriceRangeFilter';
 import './FilterSidebar.scss';
 
 const FilterSidebar = ({ setFilters }) => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(20000);
-
   const handleFilterChange = (e) => {
     const { name, value, checked } = e.target;
     setFilters(prevFilters => {
@@ -28,12 +25,17 @@ const FilterSidebar = ({ setFilters }) => {
   };
 
   const handlePriceRangeChange = ({ min, max }) => {
-    setMinPrice(min);
-    setMaxPrice(max);
     setFilters(prevFilters => ({
       ...prevFilters,
       priceRange: { min, max }
     }));
+  };
+
+  const handleClearFilters = () => {
+    setFilters({});
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.checked = false;
+    });
   };
 
   return (
@@ -42,11 +44,7 @@ const FilterSidebar = ({ setFilters }) => {
       <div className="filter-category">
         <span>主題樂園</span>
       </div>
-      <button className="clear-filters" onClick={() => {
-        setFilters({});
-        setMinPrice(0);
-        setMaxPrice(20000);
-      }}>清空選項</button>
+      <button className="clear-filters" onClick={handleClearFilters}>清空選項</button>
       <div className="filter-group">
         <h3>目的地</h3>
         <label>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import FilterSidebar from '../componentsJSX/FilterSidebar';
 import SearchResults from '../componentsJSX/SearchResults';
+import Pagination from '../componentsJSX/Pagination';
 import './Search.scss';
 import backgroundImage from '../assets/images/contact/sectionBG.jpg';
 
@@ -9,6 +10,8 @@ const Search = () => {
   const [filters, setFilters] = useState({});
   const [sortOrder, setSortOrder] = useState('Lookday 推薦');
   const [results, setResults] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [resultsPerPage] = useState(9);
   const location = useLocation();
   const [error, setError] = useState(null);
 
@@ -33,31 +36,38 @@ const Search = () => {
         const response = await fetch('https://localhost:7148/api/ActivityWithAlbum/');
         if (!response.ok) {
           throw new Error(`Http error! Status: ${response.status}`);
-        } // 從 API 獲取數據，替換為實際 API 端點
-        const data = await response.json(); // 解析 JSON 數據
+        }
+        const data = await response.json();
         console.log(data);
 
-        // 根據搜索關鍵字和過濾條件過濾結果
         const filteredResults = data.filter(item => {
-          const matchesQuery = query ? item.name.includes(query) || item.description.includes(query) : true; // 檢查是否匹配查詢
+          const matchesQuery = query ? item.name.includes(query) || item.description.includes(query) : true;
           const matchesFilters = Object.keys(filters).every(filterKey => {
             if (filterKey === 'priceRange') {
               return item.price >= filters.priceRange.min && item.price <= filters.priceRange.max;
             }
-            return filters[filterKey].includes(item[filterKey]); // 檢查是否匹配所有過濾條件
+            return filters[filterKey].includes(item[filterKey]);
           });
-          return matchesQuery && matchesFilters; // 同時滿足查詢和過濾條件
+          return matchesQuery && matchesFilters;
         });
 
-        const sortedResults = sortResults(filteredResults, sortOrder); // 對結果進行排序
-        setResults(sortedResults); // 更新結果狀態
+        const sortedResults = sortResults(filteredResults, sortOrder);
+        setResults(sortedResults);
       } catch (error) {
-        console.error('Error fetching data:', error); // 錯誤處理
+        console.error('Error fetching data:', error);
+        setError(error.message);
       }
     };
 
-    fetchData(); // 調用 fetchData 函數
-  }, [filters, sortOrder, query]); // 當 filters, sortOrder, 或 query 改變時重新執行 useEffect
+    fetchData();
+  }, [filters, sortOrder, query]);
+
+  // Get current posts
+  const indexOfLastResult = currentPage * resultsPerPage;
+  const indexOfFirstResult = indexOfLastResult - resultsPerPage;
+  const currentResults = results.slice(indexOfFirstResult, indexOfLastResult);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <div className="search-page">
@@ -82,14 +92,20 @@ const Search = () => {
             </div>
           </div>
           <div className="search-results-container">
-            {results.length === 0 ? (
+            {currentResults.length === 0 ? (
               <div className="no-results">
                 <p>搜索結果為 0，請重新搜索。</p>
               </div>
             ) : (
-              <SearchResults results={results} />
+              <SearchResults results={currentResults} />
             )}
           </div>
+          <Pagination
+            resultsPerPage={resultsPerPage}
+            totalResults={results.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
         </div>
       </div>
     </div>
