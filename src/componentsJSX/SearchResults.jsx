@@ -8,7 +8,12 @@ const SearchResults = ({ results }) => {
   const handleClick = (id) => {
     navigate(`/productpage/${id}`);
   };
-  console.log("results:",results);
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <div className="search-results">
       {results.map(result => (
@@ -16,7 +21,7 @@ const SearchResults = ({ results }) => {
           <img src={`data:image/png;base64,${result.photo[0]}`} alt={result.name} />
           <div className="result-details">
             <h3>{result.name}</h3>
-            <p>{result.date}</p>
+            <p>{formatDate(result.date)}</p>
             <p>{result.description}</p>
             <div className="result-meta">
               <span className="price">NT$ {result.price}</span>
