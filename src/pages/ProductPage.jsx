@@ -10,6 +10,7 @@ const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [averageRating, setAverageRating] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -41,9 +42,8 @@ const ProductPage = () => {
 
   // 格式化日期為西元年、月、日
   const formattedDate = format(new Date(product.date), 'yyyy年MM月dd日');
-  console.log(formattedDate);
 
-  // 將base64字符串添加data:image/png;base64, 前綴
+  // 将 base64 字符串添加 data:image/png;base64, 前缀
   const productImages = product.photo.map(photo => `data:image/png;base64,${photo}`);
 
   const settings = {
@@ -58,11 +58,18 @@ const ProductPage = () => {
     prevArrow: <SamplePrevArrow />,
   };
 
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <div className="product-page">
       <div className="product-header">
         <h1 className="product-title">{product.name}</h1>
-        {averageRating && <p>平均評分：{averageRating}</p>}
+        <button className="favorite-button" onClick={toggleFavorite}>
+          {isFavorite ? '❤️' : '🤍'}
+        </button>
+        {averageRating && <p className="average-rating">平均評分：{averageRating}</p>}
         {product.photo && product.photo.length > 0 && (
           <div className="carousel-container">
             <Slider {...settings}>
@@ -91,8 +98,8 @@ const ProductPage = () => {
         {product.reviews && product.reviews.length > 0 ? (
           product.reviews.map(review => (
             <div key={review.reviewId} className="review">
-              <p><strong>用戶名:</strong> {review.username}</p><br></br>
-              <p><strong>評分:</strong> {review.rating}</p><br></br>
+              <p><strong>用戶名:</strong> {review.username}</p>
+              <p><strong>評分:</strong> {review.rating}</p>
               <p><strong>評論:</strong> {review.comment}</p>
             </div>
           ))
@@ -103,6 +110,7 @@ const ProductPage = () => {
 
       <div className="product-footer">
         <button className="book-now-button">立即預訂</button>
+        <button className="add-to-cart-button">加入購物車</button>
         <div className="share-buttons">
           {/* 在這裡放置分享按鈕 */}
         </div>
