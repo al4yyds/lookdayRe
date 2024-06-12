@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PriceRangeFilter from './PriceRangeFilter';
+import DateFilter from './DateFilter';
 import './FilterSidebar.scss';
 
 const FilterSidebar = ({ setFilters }) => {
@@ -28,6 +29,16 @@ const FilterSidebar = ({ setFilters }) => {
     setFilters(prevFilters => ({
       ...prevFilters,
       priceRange: { min, max }
+    }));
+  };
+
+  const handleDateRangeChange = ({ start, end }) => {
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      dateRange: {
+        start: start ? start.toISOString().split('T')[0] : null,
+        end: end ? end.toISOString().split('T')[0] : null
+      }
     }));
   };
 
@@ -68,6 +79,7 @@ const FilterSidebar = ({ setFilters }) => {
           宜蘭
         </label>
       </div>
+      <DateFilter setDateRange={handleDateRangeChange} />
       <PriceRangeFilter setPriceRange={handlePriceRangeChange} />
     </div>
   );

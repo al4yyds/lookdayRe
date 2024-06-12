@@ -46,6 +46,9 @@ const Search = () => {
             if (filterKey === 'priceRange') {
               return item.price >= filters.priceRange.min && item.price <= filters.priceRange.max;
             }
+            if (filterKey === 'date') {
+              return item.date === filters.date;
+            }
             return filters[filterKey].includes(item[filterKey]);
           });
           return matchesQuery && matchesFilters;

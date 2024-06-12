@@ -17,17 +17,16 @@ const PriceRangeFilter = ({ setPriceRange }) => {
 
   return (
     <div className="price-range-filter">
-      <h3>價格範圍篩選</h3>
+      <h3>價格範圍</h3>
       <div className="input-container">
         <input
-          type="number"
+          type="text"
           placeholder="最低價格"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
         />
-        <span> - </span>
         <input
-          type="number"
+          type="text"
           placeholder="最高價格"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}

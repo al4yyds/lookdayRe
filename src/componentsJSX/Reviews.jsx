@@ -9,7 +9,7 @@ const Reviews = ({ reviews }) => {
         reviews.map(review => (
           <div key={review.reviewId} className="review">
             <p><strong>用戶名:</strong> {review.username}</p>
-            <p><strong>評分:</strong> {review.rating}</p>
+            <p className='star'><strong>評分:★</strong> {review.rating}</p>
             <p><strong>評論:</strong> {review.comment}</p>
           </div>
         ))

@@ -8,7 +8,7 @@ const ProductHeader = ({ title, averageRating, isFavorite, toggleFavorite }) => 
       <button className="favorite-button" onClick={toggleFavorite}>
         {isFavorite ? '❤️' : '🤍'}
       </button>
-      {averageRating && <p className="average-rating">平均評分：{averageRating}</p>}
+      {averageRating && <p className="average-rating">★ {averageRating}</p>}
     </div>
   );
 };
