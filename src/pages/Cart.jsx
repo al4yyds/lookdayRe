@@ -1,4 +1,5 @@
 import GridPic from "../componentsJSX/GridPic";
+import Introduction from "../componentsJSX/Introduction";
 import ProInfo from "../componentsJSX/ProInfo";
 import ProductSearchBar from "../componentsJSX/ProductSearchBar";
 
@@ -8,6 +9,7 @@ const Cart = () => {
       <ProductSearchBar />
       <GridPic />
       <ProInfo />
+      <Introduction />
     </div>
   );
 };
