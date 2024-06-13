@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import './DateFilter.scss';  // 引入自定義樣式
+import './DateFilter.scss';
 
 const DateFilter = ({ setDateRange }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const handleDateChange = (dates) => {
+  const handleDateChange = useCallback((dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
     setDateRange({ start, end });
-  };
+  }, [setDateRange]);
 
   return (
     <div className="date-filter">
@@ -27,11 +27,10 @@ const DateFilter = ({ setDateRange }) => {
         minDate={new Date()}
         isClearable
         placeholderText="選擇日期區間"
-        className="custom-datepicker"  // 添加自定義class
+        className="custom-datepicker"
       />
     </div>
   );
 };
 
 export default DateFilter;
-

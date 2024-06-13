@@ -15,7 +15,8 @@ const Search = () => {
   const location = useLocation();
   const [error, setError] = useState(null);
 
-  const query = new URLSearchParams(location.search).get('query');
+  const queryParams = new URLSearchParams(location.search);
+  const queries = queryParams.getAll('query');
 
   const sortResults = (results, order) => {
     switch (order) {
@@ -30,42 +31,47 @@ const Search = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://localhost:7148/api/ActivityWithAlbum/');
-        if (!response.ok) {
-          throw new Error(`Http error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log(data);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://localhost:7148/api/ActivityWithAlbum/');
+      if (!response.ok) {
+        throw new Error(`Http error! Status: ${response.status}`);
+      }
+      const data = await response.json();
 
-        const filteredResults = data.filter(item => {
-          const matchesQuery = query ? item.name.includes(query) || item.description.includes(query) : true;
-          const matchesFilters = Object.keys(filters).every(filterKey => {
-            if (filterKey === 'priceRange') {
-              return item.price >= filters.priceRange.min && item.price <= filters.priceRange.max;
-            }
-            if (filterKey === 'date') {
-              return item.date === filters.date;
-            }
-            return filters[filterKey].includes(item[filterKey]);
-          });
-          return matchesQuery && matchesFilters;
+      const filteredResults = data.filter(item => {
+        const matchesQuery = queries.length > 0 ? queries.some(query => item.name.includes(query) || item.description.includes(query)) : true;
+        const matchesFilters = Object.keys(filters).every(filterKey => {
+          if (filterKey === 'priceRange') {
+            return item.price >= filters.priceRange.min && item.price <= filters.priceRange.max;
+          }
+          if (filterKey === 'dateRange') {
+            const itemDate = new Date(item.date);
+            const startDate = filters.dateRange.start ? new Date(filters.dateRange.start) : null;
+            const endDate = filters.dateRange.end ? new Date(filters.dateRange.end) : null;
+            return (!startDate || itemDate >= startDate) && (!endDate || itemDate <= endDate);
+          }
+          if (filterKey === 'locations') {
+            return filters.locations.includes(item.location);
+          }
+          return true;
         });
 
-        const sortedResults = sortResults(filteredResults, sortOrder);
-        setResults(sortedResults);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setError(error.message);
-      }
-    };
+        return matchesQuery && matchesFilters;
+      });
 
+      const sortedResults = sortResults(filteredResults, sortOrder);
+      setResults(sortedResults);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setError(error.message);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
-  }, [filters, sortOrder, query]);
+  }, [filters, sortOrder, queries]);
 
-  // Get current posts
   const indexOfLastResult = currentPage * resultsPerPage;
   const indexOfFirstResult = indexOfLastResult - resultsPerPage;
   const currentResults = results.slice(indexOfFirstResult, indexOfLastResult);
@@ -76,7 +82,7 @@ const Search = () => {
     <div className="search-page">
       <header className="search-header" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="header-content">
-          <h1>{query ? query : '景點門票'}</h1>
+          <h1>{queries.length > 0 ? queries.join(', ') : '景點門票'}</h1>
           <p>探索主題樂園、博物館等眾多必遊景點</p>
         </div>
       </header>

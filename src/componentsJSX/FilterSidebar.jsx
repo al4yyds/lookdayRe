@@ -1,28 +1,18 @@
-import React from 'react';
-import PriceRangeFilter from './PriceRangeFilter';
-import DateFilter from './DateFilter';
+import React, { useState } from 'react';
 import './FilterSidebar.scss';
+import DateFilter from './DateFilter';
+import PriceRangeFilter from './PriceRangeFilter';
 
 const FilterSidebar = ({ setFilters }) => {
+  const [locationFilters, setLocationFilters] = useState([]);
+
   const handleFilterChange = (e) => {
-    const { name, value, checked } = e.target;
-    setFilters(prevFilters => {
-      const updatedFilters = { ...prevFilters };
-      if (checked) {
-        if (!updatedFilters[name]) {
-          updatedFilters[name] = [];
-        }
-        updatedFilters[name].push(value);
-      } else {
-        if (updatedFilters[name]) {
-          updatedFilters[name] = updatedFilters[name].filter(item => item !== value);
-          if (updatedFilters[name].length === 0) {
-            delete updatedFilters[name];
-          }
-        }
-      }
-      return updatedFilters;
-    });
+    const { value, checked } = e.target;
+    if (checked) {
+      setLocationFilters(prevFilters => [...prevFilters, value]);
+    } else {
+      setLocationFilters(prevFilters => prevFilters.filter(filter => filter !== value));
+    }
   };
 
   const handlePriceRangeChange = ({ min, max }) => {
@@ -44,6 +34,7 @@ const FilterSidebar = ({ setFilters }) => {
 
   const handleClearFilters = () => {
     setFilters({});
+    setLocationFilters([]);
     document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
       checkbox.checked = false;
     });
@@ -58,26 +49,18 @@ const FilterSidebar = ({ setFilters }) => {
       <button className="clear-filters" onClick={handleClearFilters}>清空選項</button>
       <div className="filter-group">
         <h3>目的地</h3>
-        <label>
-          <input type="checkbox" name="location" value="台北" onChange={handleFilterChange} />
-          台北
-        </label>
-        <label>
-          <input type="checkbox" name="location" value="台中" onChange={handleFilterChange} />
-          台中
-        </label>
-        <label>
-          <input type="checkbox" name="location" value="高雄" onChange={handleFilterChange} />
-          高雄
-        </label>
-        <label>
-          <input type="checkbox" name="location" value="台南" onChange={handleFilterChange} />
-          台南
-        </label>
-        <label>
-          <input type="checkbox" name="location" value="宜蘭" onChange={handleFilterChange} />
-          宜蘭
-        </label>
+        {['台北', '台中', '高雄', '台南', '宜蘭'].map(location => (
+          <label key={location}>
+            <input 
+              type="checkbox" 
+              name="location" 
+              value={location} 
+              checked={locationFilters.includes(location)} 
+              onChange={handleFilterChange} 
+            />
+            {location}
+          </label>
+        ))}
       </div>
       <DateFilter setDateRange={handleDateRangeChange} />
       <PriceRangeFilter setPriceRange={handlePriceRangeChange} />
