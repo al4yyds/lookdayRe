@@ -1,0 +1,65 @@
+/* 通用樣式 */
+body, html {
+    overflow-x: hidden; /* 隱藏橫向滾動條 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .product-search-bar {
+    width: 100vw; /* 使用 100vw 來確保它擴展到視窗寬度 */
+    background-color: #f7f7f7; /* 淺灰色背景 */
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin: 0 auto; /* 確保它在視窗中居中 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 增加陰影 */
+  }
+  
+  .search-bar-container {
+    display: flex;
+    width: 100%;
+    max-width: 1080px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .search-input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ddd; /* 淺灰色邊框 */
+    border-radius: 5px;
+    background-color: #ffffff; /* 白色背景 */
+    color: #333; /* 深灰色文字 */
+    box-sizing: border-box;
+  }
+  
+  .date-picker, .guest-room-picker {
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #ffffff; /* 白色背景 */
+    border: 1px solid #ddd; /* 淺灰色邊框 */
+    border-radius: 5px;
+    color: #333; /* 深灰色文字 */
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #ff8800; /* 橙色背景 */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff; /* 白色文字 */
+    cursor: pointer;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+  
+  .search-button:hover {
+    background-color: #e67700; /* 深橙色背景 */
+  }
+  

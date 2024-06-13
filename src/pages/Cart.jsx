@@ -1,5 +1,15 @@
+import GridPic from "../componentsJSX/GridPic";
+import ProInfo from "../componentsJSX/ProInfo";
+import ProductSearchBar from "../componentsJSX/ProductSearchBar";
+
 const Cart = () => {
-  return <div>這是購物車頁面</div>;
+  return (
+    <div>
+      <ProductSearchBar />
+      <GridPic />
+      <ProInfo />
+    </div>
+  );
 };
 
 export default Cart;
