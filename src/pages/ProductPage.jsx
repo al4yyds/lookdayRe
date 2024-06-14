@@ -1,5 +1,3 @@
-// ProductPage.js
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
@@ -7,7 +5,7 @@ import GridPic from '../componentsJSX/GridPic';
 import Reviews from '../componentsJSX/Reviews';
 import ProductDesc from '../componentsJSX/ProductDesc';
 import ProductHeader from '../componentsJSX/ProductHeader';
-import ImageDescription from '../componentsJSX/ImageDescription'; // 导入新组件
+import ImageDescription from '../componentsJSX/ImageDescription'; // 如果需要的话，导入新组件
 import './ProductPage.scss';
 
 const ProductPage = () => {
@@ -67,7 +65,10 @@ const ProductPage = () => {
   const formattedDate = format(new Date(product.date), 'yyyy年MM月dd日');
 
   // 将 base64 字符串添加 data:image/png;base64, 前缀
-  const productImages = product.photo.map(photo => ({ src: `data:image/png;base64,${photo}`, description: product.description }));
+  const productImages = product.photo.map(photo => ({
+    src: `data:image/png;base64,${photo}`,
+    description: product.description
+  }));
 
   const toggleFavorite = async () => {
     try {
