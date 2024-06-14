@@ -4,6 +4,8 @@ import PromotionSection from "../componentsJSX/PromotionSection";
 import Rank from "../componentsJSX/Rank";
 import Area from "../componentsJSX/Area";
 import Redeye from "../componentsJSX/Redeye";
+import Loader from "../componentsJSX/Loader";
+
 
 const Home = () => {
   // const islogin=true;

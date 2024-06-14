@@ -28,15 +28,19 @@
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
   }
 
   
-  .small-image {
+  .small-image  {
     width: 100%;
     height: calc(50% - 5px); /* 为每张小图片预留一些空间 */
     object-fit: cover;
     cursor: pointer;
+
   }
+  
   
   .view-all-container {
     position: absolute;

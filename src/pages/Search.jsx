@@ -14,6 +14,7 @@ const Search = () => {
   const [resultsPerPage] = useState(9);
   const location = useLocation();
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // New state for loading
 
   const queryParams = new URLSearchParams(location.search);
   const queries = queryParams.getAll('query');
@@ -33,6 +34,7 @@ const Search = () => {
 
   const fetchData = async () => {
     try {
+      setLoading(true); // Start loading
       const response = await fetch('https://localhost:7148/api/ActivityWithAlbum/');
       if (!response.ok) {
         throw new Error(`Http error! Status: ${response.status}`);
@@ -62,9 +64,11 @@ const Search = () => {
 
       const sortedResults = sortResults(filteredResults, sortOrder);
       setResults(sortedResults);
+      setLoading(false); // Stop loading
     } catch (error) {
       console.error('Error fetching data:', error);
       setError(error.message);
+        setLoading(false); // Stop loading
     }
   };
 
@@ -89,6 +93,7 @@ const Search = () => {
       <div className="search-content">
         <FilterSidebar setFilters={setFilters} />
         <div className="search-results-wrapper">
+
           <div className="search-controls">
             <span>找到 {results.length} 項結果</span>
             <div className="search-sort">
