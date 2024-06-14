@@ -5,6 +5,8 @@ import Rank from "../componentsJSX/Rank";
 import Area from "../componentsJSX/Area";
 import Redeye from "../componentsJSX/Redeye";
 import Loader from "../componentsJSX/Loader";
+import Weather from "../componentsJSX/Weather";
+import Bot from "../componentsJSX/Bot";
 
 
 const Home = () => {
@@ -17,6 +19,8 @@ const Home = () => {
       <PromotionSection />
       <Rank />
       <Area />
+      <Bot />
+      <Weather />
       <Redeye/>
     </>
   );

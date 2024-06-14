@@ -8,7 +8,6 @@ const Cart = () => {
   return (
     <div>
       <ProductSearchBar />
-      <GridPic />
       <ProInfo />
       <Introduction />
       <Reviews />

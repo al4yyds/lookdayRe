@@ -145,7 +145,7 @@
   top: 50%;
   width: 40px;
   height: 40px;
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   border-radius: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -156,9 +156,9 @@
     fill: #fff;
   }
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.7);
-  }
+  // &:hover {
+  //   background: transparent;
+  // }
 }
 
 .custom-next {
