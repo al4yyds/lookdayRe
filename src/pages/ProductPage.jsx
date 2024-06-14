@@ -131,13 +131,13 @@ const ProductPage = () => {
       <Reviews reviews={product.reviews} />
 
       {/* 显示前四张图片及其描述 */}
-      {productImages.length > 0 && (
+      {/* {productImages.length > 0 && (
         <ImageDescription images={productImages} />
-      )}
+      )} */}
 
       <div className="product-footer">
-        <button className="book-now-button">立即预订</button>
-        <button className="add-to-cart-button">加入购物车</button>
+        <button className="book-now-button">立即預訂</button>
+        <button className="add-to-cart-button">加入購物車</button>
         <div className="share-buttons">
           {/* 在这里放置分享按钮 */}
         </div>

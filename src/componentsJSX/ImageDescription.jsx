@@ -1,7 +1,7 @@
 // ImageDescription.js
 
 import React from 'react';
-import './ImageDescription.css'; // 样式文件
+import './ImageDescription.scss'; // 样式文件
 
 const ImageDescription = ({ images }) => {
   return (
