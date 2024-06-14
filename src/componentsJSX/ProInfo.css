@@ -1,0 +1,164 @@
+.pro-info {
+    width: 100%;
+    max-width: 1080px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .pro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .pro-title {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pro-title h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .pro-rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stars {
+    color: #ff8800;
+    margin-right: 10px;
+  }
+  
+  .promotion {
+    font-size: 14px;
+    color: #ff8800;
+  }
+  
+  .pro-price {
+    font-size: 24px;
+    color: #ff8800;
+  }
+  
+  .pro-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .promo-code, .rating-box, .pro-details, .pro-location {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .rating-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rating-score {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .reviews {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .user-review {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .review-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff8800;
+    margin-right: 10px;
+  }
+  
+  .review-text {
+    text-align: left;
+  }
+  
+  .pro-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .details-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .details-icon {
+    margin-right: 5px;
+  }
+  
+  .more-details {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  
+  .more-details:hover {
+    text-decoration: underline;
+  }
+  
+  .pro-location {
+    text-align: left;
+  }
+  
+  .location-details {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .view-map {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  
+  .view-map:hover {
+    text-decoration: underline;
+  }
+  
+  .select-room-button {
+    background-color: #ff8800;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0 auto;
+  }
+  
+  .select-room-button:hover {
+    background-color: #e67700;
+  }
+  

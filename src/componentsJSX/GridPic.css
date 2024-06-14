@@ -2,7 +2,7 @@
     display: flex;
     max-width: 1080px;
     height: 500px; /* 固定高度 */
-    margin: 0 auto;
+    margin: 10px auto 0 auto; /* 添加上邊距 */
     position: relative;
   }
   
@@ -31,17 +31,14 @@
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
   }
-
   
   .small-image  {
     width: 100%;
     height: calc(50% - 5px); /* 为每张小图片预留一些空间 */
     object-fit: cover;
     cursor: pointer;
-
   }
-  
-  
+
   .view-all-container {
     position: absolute;
     bottom: 10px;
