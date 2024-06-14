@@ -7,7 +7,7 @@ import GridPic from '../componentsJSX/GridPic';
 import Reviews from '../componentsJSX/Reviews';
 import ProductDesc from '../componentsJSX/ProductDesc';
 import ProductHeader from '../componentsJSX/ProductHeader';
-import ImageDescription from '../componentsJSX/ImageDescription'; // 导入更新后的组件
+import ImageDescription from '../componentsJSX/ImageDescription'; // 导入新组件
 import './ProductPage.scss';
 
 const ProductPage = () => {

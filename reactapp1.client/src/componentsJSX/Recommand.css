@@ -1,0 +1,106 @@
+.recommand-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background: #fff; /* 白色背景 */
+}
+
+.recommand {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recommand-body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff; /* 白色背景 */
+}
+
+.slideC {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: 362px;
+  height: 272px;
+  margin: 0 auto;
+}
+
+.slide {
+  width: 362px;
+  height: 272px;
+  transition: transform 500ms ease, opacity 500ms ease, visibility 500ms ease;
+  position: absolute;
+  top: 0;
+  border-radius: 12px;
+  background: #ff7043; /* 橘色背景 */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* 淺灰色陰影 */
+}
+
+.reflection {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  bottom: -60px;
+  border-radius: 12px;
+  transition: transform 500ms ease, opacity 500ms ease, visibility 500ms ease;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent); /* 白色漸變 */
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sliderContent {
+  display: flex;
+  flex-direction: column;
+  color: #fff; /* 白色文字 */
+  padding: 30px;
+  align-items: flex-start;
+  font-family: "Lucida Sans", Geneva, Verdana, sans-serif;
+}
+
+.sliderContent .icon {
+  font-size: 3rem; /* 圖標大小 */
+}
+
+.sliderContent h2 {
+  margin: 16px 0;
+  color: #fff; /* 白色標題 */
+}
+
+.sliderContent p {
+  margin: 0;
+  margin-bottom: 16px;
+  color: #f0f0f0; /* 淺灰色描述 */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btns .btn {
+  cursor: pointer;
+  font-size: 3rem; /* 調整箭頭大小 */
+  color: #ff7043; /* 橘色箭頭 */
+}
+
+.btns .btn:last-child {
+  margin-left: 40px;
+}
