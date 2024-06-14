@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./PicCarousel.scss";
+import "./PicCarousel.css";
 
 // 引入本地圖片
 import ad1 from "../assets/images/adHome/ad1.jpg";
@@ -68,10 +68,7 @@ const PicCarousel = () => {
 
 const SampleNextArrow = ({ onClick }) => {
   return (
-    <div
-      className="custom-arrow custom-next"
-      onClick={onClick}
-    >
+    <div className="custom-arrow custom-next" onClick={onClick}>
       <svg viewBox="0 0 24 24">
         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
       </svg>
@@ -81,10 +78,7 @@ const SampleNextArrow = ({ onClick }) => {
 
 const SamplePrevArrow = ({ onClick }) => {
   return (
-    <div
-      className="custom-arrow custom-prev"
-      onClick={onClick}
-    >
+    <div className="custom-arrow custom-prev" onClick={onClick}>
       <svg viewBox="0 0 24 24">
         <path d="M15.41 7.41L10.83 12l4.58 4.59L14 18l-6-6 6-6z" />
       </svg>
