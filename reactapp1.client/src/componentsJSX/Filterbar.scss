@@ -1,0 +1,132 @@
+.filter-bar {
+    width: 1080px; /* 固定寬度 */
+    height: 50px; /* 调整整体高度为 50px */
+    display: flex;
+    justify-content: space-around;
+/*    align-items: center;*/
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto; /* 居中顯示 */
+}
+
+.filter-item {
+    position: relative;
+    height: 40px; /* 设置高度为 50px -->因為空隙大選單會消失太快點不到 改為40 */
+}
+
+.filter-button {
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 5px 10px; /* 调整内边距以适应较小的高度 */
+    font-size: 14px; /* 调整字体大小以适应较小的高度 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    height: 50px; /* 设置高度为 50px */
+    display: flex;
+    align-items: center;
+}
+
+.filter-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.grid {
+    display: none;
+    position: absolute;
+    top: 100%; /* 修改為 100% */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    list-style: none;
+    padding: 10px;
+    width: 350px;
+    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.dropdown-menu.grid li {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu.grid li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.filter-item:hover .dropdown-menu.grid {
+    display: grid;
+
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    width: 100px; /* 設定固定寬度 */
+    height: 100px; /* 設定固定高度 */
+}
+
+.location img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius:5px;
+}
+
+.location a {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    background: rgba(0, 0, 0, 0.3); /* 半透明背景 */
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.dropdown-menu.list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    list-style: none;
+    padding: 10px 0;
+    width: 200px;
+    text-align: left;
+}
+
+.dropdown-menu.list li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dropdown-menu.list li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.filter-item:hover .dropdown-menu.list {
+    display: block;
+}
