@@ -1,0 +1,28 @@
+/* ImageDescription.css */
+
+.image-description {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .large-image {
+    flex: 1;
+    position: relative;
+  }
+  
+  .large-image img {
+    width: 100%;
+    border-radius: 15px; /* 添加圆角 */
+  }
+  
+  .description {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .description p {
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  

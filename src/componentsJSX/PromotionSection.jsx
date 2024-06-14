@@ -2,6 +2,7 @@ import "./PromotionSection.scss";
 import promoImage1 from "../assets/images/promotion/promotion1.jpg";
 import promoImage2 from "../assets/images/promotion/promotion2.jpg";
 import promoImage3 from "../assets/images/promotion/promotion3.jpg";
+import Loader from "../componentsJSX/Loader";
 
 const promotions = [
   {
@@ -28,7 +29,6 @@ const PromotionSection = () => {
       <p className="subtitle">
         不要錯過我們最新的促銷活動，享受驚人的折扣和優惠！
       </p>
-
       <div className="cards-container">
         {promotions.map((promo, index) => (
           <div key={index} className="card">

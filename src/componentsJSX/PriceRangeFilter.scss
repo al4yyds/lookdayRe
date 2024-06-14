@@ -1,0 +1,101 @@
+.price-range-filter {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  width: 100%; /* 确保过滤器组件的宽度与父容器一致 */
+
+  h3 {
+    font-size: 1em;
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    input {
+      width: 100px;
+      padding: 8px;
+      margin-right: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    span {
+      margin: 0 8px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .reset-button, .ok-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .reset-button {
+      background-color: #fff;
+      color: #f56c46;
+      border: 1px solid #f56c46;
+    }
+
+    .ok-button {
+      background-color: #f56c46;
+      color: white;
+    }
+  }
+}
+這是我目前的css
+還有父容器
+.filter-sidebar {
+    width: 250px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: larger;
+  
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+  
+    .filter-category {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+  
+    .clear-filters {
+      background: none;
+      border: none;
+      color: #007bff;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+  
+    .filter-group {
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 5px;
+  
+        input {
+          margin-right: 5px;
+        }
+      }
+    }
+  }

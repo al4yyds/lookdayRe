@@ -1,0 +1,50 @@
+.reviews-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-height: 500px; /* 固定高度 */
+  overflow-y: auto; /* 启用垂直滚动 */
+}
+
+.reviews-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.review {
+  background-color: #f9f9f9; /* 评论独立块背景色 */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* 为了定位评分 */
+}
+
+.review:last-child {
+  margin-bottom: 0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.review-content {
+  margin-top: 15px; /* 添加上边距以在用户名和评论之间空一行 */
+}
+
+.star {
+  color: #ff9900;
+  position: absolute;
+  top: 10px;
+  right: 10px; /* 右上角定位 */
+}

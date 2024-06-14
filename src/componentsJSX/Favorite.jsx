@@ -22,7 +22,6 @@ const Favorite = () => {
     },
     // 你可以添加更多收藏项目
   ];
-
   return (
     <div className="favorite-page">
       <h1>我的收藏</h1>
@@ -36,7 +35,9 @@ const Favorite = () => {
         ))}
       </div>
     </div>
+    
   );
 };
+
 
 export default Favorite;
