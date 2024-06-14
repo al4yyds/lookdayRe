@@ -39,11 +39,13 @@
       align-items: center;
 
       .price {
+        margin-bottom: 5%;
         font-size: 1.25rem;
         color: #ff5722;
       }
 
       .rating {
+        margin-bottom: 5%;
         background: #ffd700;
         border-radius: 3px;
         padding: 5px 10px;
@@ -52,4 +54,11 @@
       }
     }
   }
+}
+
+.search-result-item:hover {
+  transition: transform 0.3s ease-in-out; /* 添加平滑過渡效果 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 添加漂浮陰影效果 */
+  transform: translateY(-7px); /* 將卡片向上移動 */
+  cursor: pointer;
 }

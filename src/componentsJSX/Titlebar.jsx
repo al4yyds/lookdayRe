@@ -9,7 +9,8 @@ const Titlebar = () => {
 
   const handleSearchKeyDown = (event) => {
     if (event.key === 'Enter') {
-      navigate(`/search?query=${searchQuery}`);
+      const queries = searchQuery.split(',').map(query => query.trim()).join('&query=');
+      navigate(`/search?query=${queries}`);
     }
   };
 
