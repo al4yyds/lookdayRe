@@ -1,0 +1,49 @@
+/* src/components/LoginForm.css */
+.main-container {
+  width: 436px;
+  max-height: 619px;
+  margin: auto;
+  background-color: #ffaf60;
+  border-radius: 15px;
+}
+
+.logo {
+  width: 180px;
+  max-height: 320px;
+}
+
+.a1 {
+  max-height: 525px;
+}
+
+.input-field {
+  border-radius: 10px;
+  width: 280px;
+  border-color: white;
+}
+
+.reminder {
+  color: red;
+  margin-left: 80px;
+}
+
+.noaccount {
+  font-size: 12px;
+}
+
+.login-button {
+  margin-left: 310px;
+  border-radius: 5px;
+}
+
+#btn-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.link-button {
+  border-color: transparent;
+  background-color: transparent;
+  text-decoration: underline;
+}
