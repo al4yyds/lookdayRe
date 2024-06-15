@@ -1,0 +1,86 @@
+.favorite-products {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.favorite-products .header {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  padding: 40px 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.favorite-products .header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.favorite-products .header p {
+  font-size: 1.25rem;
+}
+
+.favorite-products .product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.favorite-products .product-list .product-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(33.333% - 20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.favorite-products .product-list .product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.favorite-products .product-list .product-card .product-info {
+  padding: 15px;
+}
+
+.favorite-products .product-list .product-card .product-info h2 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.favorite-products .product-list .product-card .product-info .price {
+  font-size: 1.25rem;
+  color: #ff6f61;
+}
+
+.favorite-products .product-list .product-card .product-info button {
+  background: #f56c46;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.favorite-products .product-list .product-card .product-info button:hover {
+  background: #d14b2b;
+}
+
+.favorite-products .product-list .product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.favorite-products .product-list .product-card:hover img {
+  transform: scale(1.05);
+}

@@ -1,106 +1,75 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import "./FilterSidebar.css";
+import DateFilter from "./DateFilter";
+import PriceRangeFilter from "./PriceRangeFilter";
 
-const FilterItem = ({ title, children }) => {
-  return (
-    <div className="filter-item">
-      <button className="filter-button">{title}</button>
-      <div className="dropdown">{children}</div>
-    </div>
-  );
-};
+const FilterSidebar = ({ setFilters }) => {
+  const [locationFilters, setLocationFilters] = useState([]);
 
-const GridDropdownMenu = ({ items }) => {
-  const navigate = useNavigate();
+  const handleFilterChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setLocationFilters((prevFilters) => [...prevFilters, value]);
+    } else {
+      setLocationFilters((prevFilters) =>
+        prevFilters.filter((filter) => filter !== value)
+      );
+    }
+  };
 
-  const handleItemClick = (label) => {
-    navigate(`/search?query=${label}`);
+  const handlePriceRangeChange = ({ min, max }) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      priceRange: { min, max },
+    }));
+  };
+
+  const handleDateRangeChange = ({ start, end }) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      dateRange: {
+        start: start ? start.toISOString().split("T")[0] : null,
+        end: end ? end.toISOString().split("T")[0] : null,
+      },
+    }));
+  };
+
+  const handleClearFilters = () => {
+    setFilters({});
+    setLocationFilters([]);
+    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+      checkbox.checked = false;
+    });
   };
 
   return (
-    <ul className="dropdown-menu grid">
-      {items.map((item, index) => (
-        <li
-          key={index}
-          className="location"
-          onClick={() => handleItemClick(item.label)}
-        >
-          {item.imgSrc && <img src={item.imgSrc} alt={item.label} />}
-          <a href="#">{item.label}</a>
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const ListDropdownMenu = ({ items }) => {
-  return (
-    <ul className="dropdown-menu list">
-      {items.map((item, index) => (
-        <li key={index} className="list-item">
-          {item.label}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const FilterBar = () => {
-  return (
-    <div className="filter-bar">
-      <FilterItem title="探索目的地">
-        <GridDropdownMenu
-          items={[
-            { imgSrc: "/src/assets/images/areas/taipei.jpg", label: "台北" },
-            { imgSrc: "/src/assets/images/areas/taichung.jpg", label: "台中" },
-            { imgSrc: "/src/assets/images/areas/hualien.jpg", label: "花蓮" },
-            { imgSrc: "/src/assets/images/areas/Taidon.jpg", label: "台東" },
-            { imgSrc: "/src/assets/images/areas/tainan.jpg", label: "台南" },
-            { imgSrc: "/src/assets/images/areas/yilan.jpg", label: "宜蘭" },
-            { imgSrc: "/src/assets/images/areas/yuling.jpg", label: "雲林" },
-            { imgSrc: "/src/assets/images/areas/pingdon.jpg", label: "屏東" },
-            { imgSrc: "/src/assets/images/areas/kaohsiung.jpg", label: "高雄" },
-          ]}
-        />
-      </FilterItem>
-      <FilterItem title="全部分類">
-        <ListDropdownMenu
-          items={[{ label: "分類1" }, { label: "分類2" }, { label: "分類3" }]}
-        />
-      </FilterItem>
-      <FilterItem title="行程&體驗">
-        <ListDropdownMenu
-          items={[{ label: "體驗1" }, { label: "體驗2" }, { label: "體驗3" }]}
-        />
-      </FilterItem>
-      <FilterItem title="景點門票">
-        <ListDropdownMenu
-          items={[{ label: "門票1" }, { label: "門票2" }, { label: "門票3" }]}
-        />
-      </FilterItem>
-      <FilterItem title="飯店">
-        <ListDropdownMenu
-          items={[{ label: "飯店1" }, { label: "飯店2" }, { label: "飯店3" }]}
-        />
-      </FilterItem>
-      <FilterItem title="交通">
-        <ListDropdownMenu
-          items={[{ label: "交通1" }, { label: "交通2" }, { label: "交通3" }]}
-        />
-      </FilterItem>
-      <FilterItem title="美食品嚐">
-        <ListDropdownMenu
-          items={[{ label: "美食1" }, { label: "美食2" }, { label: "美食3" }]}
-        />
-      </FilterItem>
-      <FilterItem title="台灣高鐵">
-        <ListDropdownMenu
-          items={[{ label: "高鐵1" }, { label: "高鐵2" }, { label: "高鐵3" }]}
-        />
-      </FilterItem>
+    <div className="filter-sidebar">
+      <h2>已選</h2>
+      <div className="filter-category">
+        <span>主題樂園</span>
+      </div>
+      <button className="clear-filters" onClick={handleClearFilters}>
+        清空選項
+      </button>
+      <div className="filter-group">
+        <h3>目的地</h3>
+        {["台北", "台中", "高雄", "台南", "宜蘭"].map((location) => (
+          <label key={location}>
+            <input
+              type="checkbox"
+              name="location"
+              value={location}
+              checked={locationFilters.includes(location)}
+              onChange={handleFilterChange}
+            />
+            {location}
+          </label>
+        ))}
+      </div>
+      <DateFilter setDateRange={handleDateRangeChange} />
+      <PriceRangeFilter setPriceRange={handlePriceRangeChange} />
     </div>
   );
 };
 
-export default FilterBar;
+export default FilterSidebar;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./Filterbar.scss";
+import "./Filterbar.css";
 
 const FilterItem = ({ title, children, isGrid }) => {
   return (

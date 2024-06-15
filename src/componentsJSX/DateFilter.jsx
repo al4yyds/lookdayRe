@@ -1,18 +1,21 @@
-import React, { useState, useCallback } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './DateFilter.scss';
+import { useState, useCallback } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./DateFilter.css";
 
 const DateFilter = ({ setDateRange }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const handleDateChange = useCallback((dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-    setDateRange({ start, end });
-  }, [setDateRange]);
+  const handleDateChange = useCallback(
+    (dates) => {
+      const [start, end] = dates;
+      setStartDate(start);
+      setEndDate(end);
+      setDateRange({ start, end });
+    },
+    [setDateRange]
+  );
 
   return (
     <div className="date-filter">

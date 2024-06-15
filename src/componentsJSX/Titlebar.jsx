@@ -1,15 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "./Titlebar.scss";
+import "./Titlebar.css";
 import logo from "../assets/Logo.png"; // 確保你有一個 logo.png 文件在對應的路徑
 
 const Titlebar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   const handleSearchKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      const queries = searchQuery.split(',').map(query => query.trim()).join('&query=');
+    if (event.key === "Enter") {
+      const queries = searchQuery
+        .split(",")
+        .map((query) => query.trim())
+        .join("&query=");
       navigate(`/search?query=${queries}`);
     }
   };
