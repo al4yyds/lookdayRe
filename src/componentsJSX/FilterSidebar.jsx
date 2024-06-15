@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./Filterbar.css";
+import "./FilterSidebar.css";
 
 const FilterItem = ({ title, children }) => {
   return (
