@@ -1,8 +1,13 @@
-import React from 'react';
-import './ProductHeader.scss';
-import HeartButton from './HeartButton';
+import React from "react";
+import "./ProductHeader.css";
+import HeartButton from "./HeartButton";
 
-const ProductHeader = ({ title, averageRating, isFavorite, toggleFavorite }) => {
+const ProductHeader = ({
+  title,
+  averageRating,
+  isFavorite,
+  toggleFavorite,
+}) => {
   return (
     <div className="product-header">
       <h1 className="product-title">{title}</h1>

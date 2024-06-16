@@ -1,5 +1,5 @@
-import React from 'react';
-import './ProductDesc.scss';
+import React from "react";
+import "./ProductDesc.css";
 
 const Description = ({ price, date, remaining, description }) => {
   return (

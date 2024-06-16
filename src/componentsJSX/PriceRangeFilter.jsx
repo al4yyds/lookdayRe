@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import './PriceRangeFilter.scss';
+import React, { useState } from "react";
+import "./PriceRangeFilter.css";
 
 const PriceRangeFilter = ({ setPriceRange }) => {
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   const handleApply = () => {
     setPriceRange({ min: Number(minPrice), max: Number(maxPrice) });
   };
 
   const handleReset = () => {
-    setMinPrice('');
-    setMaxPrice('');
+    setMinPrice("");
+    setMaxPrice("");
     setPriceRange({ min: 0, max: 5000 });
   };
 
@@ -33,8 +33,12 @@ const PriceRangeFilter = ({ setPriceRange }) => {
         />
       </div>
       <div className="buttons">
-        <button className="reset-button" onClick={handleReset}>重設</button>
-        <button className="ok-button" onClick={handleApply}>OK</button>
+        <button className="reset-button" onClick={handleReset}>
+          重設
+        </button>
+        <button className="ok-button" onClick={handleApply}>
+          OK
+        </button>
       </div>
     </div>
   );

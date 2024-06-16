@@ -10,7 +10,7 @@
 .footer-content {
   display: flex;
   justify-content: space-between;
-  max-width: 1080px;
+  max-width: 1366px;
   margin: 0 auto;
   flex-wrap: wrap; /* 允许换行 */
   box-sizing: border-box;

@@ -1,0 +1,100 @@
+.price-range-filter {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  width: 100%; /* 确保过滤器组件的宽度与父容器一致 */
+}
+
+.price-range-filter h3 {
+  font-size: 1em;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.price-range-filter .input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.price-range-filter .input-container input {
+  width: 100px;
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.price-range-filter .input-container span {
+  margin: 0 8px;
+}
+
+.price-range-filter .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-range-filter .buttons .reset-button,
+.price-range-filter .buttons .ok-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.price-range-filter .buttons .reset-button {
+  background-color: #fff;
+  color: #f56c46;
+  border: 1px solid #f56c46;
+}
+
+.price-range-filter .buttons .ok-button {
+  background-color: #f56c46;
+  color: white;
+}
+
+/* 父容器 */
+.filter-sidebar {
+  width: 250px;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: larger;
+}
+
+.filter-sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.filter-sidebar .filter-category {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.filter-sidebar .clear-filters {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.filter-sidebar .filter-group h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.filter-sidebar .filter-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filter-sidebar .filter-group label input {
+  margin-right: 5px;
+}

@@ -18,8 +18,8 @@ body, html {
   
   .search-bar-container {
     display: flex;
-    width: 100%;
-    max-width: 1366px;
+
+    width: 1366px;
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;

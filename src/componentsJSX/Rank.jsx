@@ -1,22 +1,28 @@
-import './Rank.scss';
+import "./Rank.css";
 
 const ranklists = [
   [
-    { id: 1, name: 'Product A1', rank: 1 },
-    { id: 2, name: 'Product B1', rank: 2 },
-    { id: 3, name: 'Product C1', rank: 3 },
+    { id: 1, name: "Product A1", rank: 1 },
+    { id: 2, name: "Product B1", rank: 2 },
+    { id: 3, name: "Product C1", rank: 3 },
     // Add more products as needed
   ],
   [
-    { id: 4, name: 'Product A2', rank: 1 },
-    { id: 5, name: 'Product B2', rank: 2 },
-    { id: 6, name: 'Product C2', rank: 3 },
+    { id: 4, name: "Product A2", rank: 1 },
+    { id: 5, name: "Product B2", rank: 2 },
+    { id: 6, name: "Product C2", rank: 3 },
     // Add more products as needed
   ],
   [
-    { id: 7, name: 'Product A3', rank: 1 },
-    { id: 8, name: 'Product B3', rank: 2 },
-    { id: 9, name: 'Product C3', rank: 3 },
+    { id: 7, name: "Product A3", rank: 1 },
+    { id: 8, name: "Product B3", rank: 2 },
+    { id: 9, name: "Product C3", rank: 3 },
+    // Add more products as needed
+  ],
+  [
+    { id: 10, name: "Product A4", rank: 1 },
+    { id: 11, name: "Product B4", rank: 2 },
+    { id: 12, name: "Product C4", rank: 3 },
     // Add more products as needed
   ],
 ];

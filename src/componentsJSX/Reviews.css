@@ -1,6 +1,6 @@
 .reviews {
   width: 100%;
-  max-width: 1080px;
+  max-width: 1366px;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
@@ -50,32 +50,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.review-category {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-  color: #333;
-}
-
-.review-bar {
-  flex: 1;
-  height: 10px;
-  background-color: #eee;
-  border-radius: 5px;
-  margin: 0 10px;
-  position: relative;
-}
-
-.review-fill {
-  height: 100%;
-  background-color: #ff8800;
-  border-radius: 5px;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .review-filters {

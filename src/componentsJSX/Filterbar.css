@@ -1,5 +1,5 @@
 .filter-bar {
-  width: 1080px; /* 固定寬度 */
+  width: 1366px; /* 固定寬度 */
   height: 50px; /* 调整整体高度为 50px */
   display: flex;
   justify-content: space-around;

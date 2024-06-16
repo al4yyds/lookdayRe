@@ -3,9 +3,9 @@ import Filterbar from "../componentsJSX/Filterbar";
 import PromotionSection from "../componentsJSX/PromotionSection";
 import Rank from "../componentsJSX/Rank";
 import Area from "../componentsJSX/Area";
+import Weather from "../componentsJSX/Weather";
 import Redeye from "../componentsJSX/Redeye";
 import Loader from "../componentsJSX/Loader";
-
 
 const Home = () => {
   // const islogin=true;
@@ -17,7 +17,8 @@ const Home = () => {
       <PromotionSection />
       <Rank />
       <Area />
-      <Redeye/>
+      <Weather />
+      <Redeye />
     </>
   );
 };

@@ -1,7 +1,8 @@
-import "./PromotionSection.scss";
+import "./PromotionSection.css";
 import promoImage1 from "../assets/images/promotion/promotion1.jpg";
 import promoImage2 from "../assets/images/promotion/promotion2.jpg";
 import promoImage3 from "../assets/images/promotion/promotion3.jpg";
+import promoImage4 from "../assets/images/promotion/promotion4.jpg"; // 新增第四個圖片
 import Loader from "../componentsJSX/Loader";
 
 const promotions = [
@@ -19,6 +20,11 @@ const promotions = [
     image: promoImage3,
     title: "活動3",
     description: "這是活動3的簡短描述。",
+  },
+  {
+    image: promoImage4,
+    title: "活動4",
+    description: "這是活動4的簡短描述。", // 新增第四個活動的資料
   },
 ];
 
