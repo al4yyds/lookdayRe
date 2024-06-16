@@ -5,12 +5,14 @@
   background-color: #ffffff;
   text-align: center;
   margin: 0 auto; /* 居中顯示 */
+  font-family: 'Noto Sans TC','Microsoft JhengHei',sans-serif;
 }
 
 .rank-title {
   font-size: 36px;
   margin-bottom: 20px;
   color: #333;
+  font-family: 'Noto Sans TC','Microsoft JhengHei',sans-serif;
 }
 
 .rank-subtitle {
@@ -72,6 +74,7 @@
 .product-item:hover {
   background-color: #ffefef;
   transform: translateX(5px);
+  cursor: pointer; /* 鼠标指针样式 */
 }
 
 .rank {
@@ -84,5 +87,35 @@
   flex-grow: 1;
   text-align: left;
   color: #555;
-  font-size: 18px;
+  font-size: 15px;
+}
+
+.description {
+  font-size: 12px;
+  color: #ff6f61;
+}
+
+.activity-image {
+  width: 120px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.image-container {
+  position: relative;
+}
+
+.rank-overlay {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.body {
+  font-family: 'Noto Sans', 'Arial', 'Microsoft JhengHei', 'Heiti TC', 'sans-serif';
 }

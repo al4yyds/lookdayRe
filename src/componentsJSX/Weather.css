@@ -1,0 +1,83 @@
+﻿.weather-container {
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-container h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px; /* 調整標題和選擇城市之間的間距 */
+    color: #333;
+    font-weight: 300;
+}
+
+.city-selector {
+    margin-bottom: 10px; /* 調整選擇城市和城市名稱之間的間距 */
+}
+
+.weather-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 10px; /* 調整選擇城市和天氣表格之間的間距 */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.weather-container select:focus {
+    border-color: #ff7043; /* 橘色 */
+    box-shadow: 0 2px 8px rgba(255, 112, 67, 0.25); /* 橘色陰影 */
+}
+
+.city-weather {
+    margin-top: 10px; /* 調整城市名稱和天氣表格之間的間距 */
+}
+
+.weather-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-table th,
+.weather-table td {
+    border: 1px solid #eee;
+    padding: 16px;
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+.weather-table th {
+    background-color: #f0f0f0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 400;
+}
+
+.weather-table td {
+    background-color: #fcfcfc;
+}
+
+.weather-table img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+.weather-detail {
+    padding: 10px;
+}

@@ -6,6 +6,7 @@ import Area from "../componentsJSX/Area";
 import Weather from "../componentsJSX/Weather";
 import Redeye from "../componentsJSX/Redeye";
 import Loader from "../componentsJSX/Loader";
+import Bot from "../componentsJSX/Bot";
 
 const Home = () => {
   // const islogin=true;
@@ -19,6 +20,7 @@ const Home = () => {
       <Area />
       <Weather />
       <Redeye />
+      <Bot />
     </>
   );
 };

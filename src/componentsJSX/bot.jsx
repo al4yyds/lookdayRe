@@ -1,81 +1,101 @@
-import React, { useState, useEffect } from 'react';
-import './bot.scss';
+import React, { useState, useEffect } from "react";
+import "./Bot.css";
 
-// ©w¸q¤@­Ó¦W¬° ChatWindow ªº React ¨ç¼Æ²Õ¥ó¡A¨Ã±µ¨ü¤@­Ó token §@¬°°Ñ¼Æ
+// å®šç¾©ä¸€å€‹åç‚º ChatWindow çš„ React å‡½æ•¸çµ„ä»¶ï¼Œä¸¦æ¥å—ä¸€å€‹ token ä½œç‚ºåƒæ•¸
 const ChatWindow = ({ token }) => {
-    // ¨Ï¥Î useState Hook ¨ÓºŞ²z²á¤Ñµ¡¤f¬O§_¶}±Òªºª¬ºA
-    const [isOpen, setIsOpen] = useState(false);
+  // ä½¿ç”¨ useState Hook ä¾†ç®¡ç†èŠå¤©çª—å£æ˜¯å¦é–‹å•Ÿçš„ç‹€æ…‹
+  const [isOpen, setIsOpen] = useState(false);
 
-    // ©w¸q¤@­Ó¨ç¼Æ¡A¥Î©ó¤Á´«²á¤Ñµ¡¤fªº¶}±Ò©MÃö³¬ª¬ºA
-    const toggleChatWindow = () => {
-        setIsOpen(!isOpen);
-    };
+  // å®šç¾©ä¸€å€‹å‡½æ•¸ï¼Œç”¨æ–¼åˆ‡æ›èŠå¤©çª—å£çš„é–‹å•Ÿå’Œé—œé–‰ç‹€æ…‹
+  const toggleChatWindow = () => {
+    setIsOpen(!isOpen);
+  };
 
-    // ¨Ï¥Î useEffect Hook ¨ÓºÊÅ¥ isOpen ©M token ªºÅÜ¤Æ
-    useEffect(() => {
-        if (isOpen) {
-            // ¦pªG²á¤Ñµ¡¤f¶}±Ò¡A°ÊºA¥[¸ü Web Chat ªº¸}¥»
-            const script = document.createElement('script');
-            script.src = 'https://cdn.botframework.com/botframework-webchat/latest/webchat.js';
-            script.async = true;
-            script.onload = () => {
-                // ·í¸}¥»¥[¸ü§¹¦¨«á¡A³Ğ«Ø¤@­Ó Web Chat ªº store
-                const store = window.WebChat.createStore({}, ({ dispatch }) => next => action => {
-                    // ÄdºI DIRECT_LINE/INCOMING_ACTIVITY ¦æ°Ê¡A¨Ã±N¬¡°ÊÀx¦s¦b sessionStorage ¤¤
-                    if (action.type === 'DIRECT_LINE/INCOMING_ACTIVITY') {
-                        const activities = JSON.parse(sessionStorage.getItem('chatActivities')) || [];
-                        activities.push(action.payload.activity);
-                        sessionStorage.setItem('chatActivities', JSON.stringify(activities));
-                    }
-                    return next(action);
-                });
+  // ä½¿ç”¨ useEffect Hook ä¾†ç›£è½ isOpen å’Œ token çš„è®ŠåŒ–
+  useEffect(() => {
+    if (isOpen) {
+      // å¦‚æœèŠå¤©çª—å£é–‹å•Ÿï¼Œå‹•æ…‹åŠ è¼‰ Web Chat çš„è…³æœ¬
+      const script = document.createElement("script");
+      script.src =
+        "https://cdn.botframework.com/botframework-webchat/latest/webchat.js";
+      script.async = true;
+      script.onload = () => {
+        // ç•¶è…³æœ¬åŠ è¼‰å®Œæˆå¾Œï¼Œå‰µå»ºä¸€å€‹ Web Chat çš„ store
+        const store = window.WebChat.createStore(
+          {},
+          ({ dispatch }) =>
+            (next) =>
+            (action) => {
+              // æ””æˆª DIRECT_LINE/INCOMING_ACTIVITY è¡Œå‹•ï¼Œä¸¦å°‡æ´»å‹•å„²å­˜åœ¨ sessionStorage ä¸­
+              if (action.type === "DIRECT_LINE/INCOMING_ACTIVITY") {
+                const activities =
+                  JSON.parse(sessionStorage.getItem("chatActivities")) || [];
+                activities.push(action.payload.activity);
+                sessionStorage.setItem(
+                  "chatActivities",
+                  JSON.stringify(activities)
+                );
+              }
+              return next(action);
+            }
+        );
 
-                // ¨Ï¥Î Web Chat ´è¬V²á¤Ñµ¡¤f
-                window.WebChat.renderWebChat({
-                    directLine: window.WebChat.createDirectLine({ token: 'vbDMrXBgEnI.gzigo-wOOnFG4Gv7kgaN45F-SlBVcJ3YQt1xZ3vZzC4' }),
-                    styleOptions: {
-                        bubbleBackground: '#f0f0f0', // ³]¸m²á¤Ñªwªwªº­I´º¦â
-                        bubbleBorderRadius: 20, // ³]¸m¨t²Î²á¤Ñªwªwªº¶ê¨¤©·«×¡A³æ¦ì¬°¹³¯À
-                        bubbleFromUserBackground: '#0078d7', // ³]¸m¥Î¤á²á¤Ñªwªwªº­I´º¦â
-                        bubbleFromUserTextColor: 'White', // ³]¸m¥Î¤á²á¤Ñªwªwªº¤å¦rÃC¦â
-                        bubbleFromUserBorderRadius: 20, // ³]¸m¥Î¤á²á¤Ñªwªwªº¶ê¨¤©·«×¡A³æ¦ì¬°¹³¯À
-                    },
-                    store
-                }, document.getElementById('webchat'));
+        // ä½¿ç”¨ Web Chat æ¸²æŸ“èŠå¤©çª—å£
+        window.WebChat.renderWebChat(
+          {
+            directLine: window.WebChat.createDirectLine({
+              token: "vbDMrXBgEnI.gzigo-wOOnFG4Gv7kgaN45F-SlBVcJ3YQt1xZ3vZzC4",
+            }),
+            styleOptions: {
+              bubbleBackground: "#f0f0f0", // è¨­ç½®èŠå¤©æ³¡æ³¡çš„èƒŒæ™¯è‰²
+              bubbleBorderRadius: 20, // è¨­ç½®ç³»çµ±èŠå¤©æ³¡æ³¡çš„åœ“è§’å¼§åº¦ï¼Œå–®ä½ç‚ºåƒç´ 
+              bubbleFromUserBackground: "#0078d7", // è¨­ç½®ç”¨æˆ¶èŠå¤©æ³¡æ³¡çš„èƒŒæ™¯è‰²
+              bubbleFromUserTextColor: "White", // è¨­ç½®ç”¨æˆ¶èŠå¤©æ³¡æ³¡çš„æ–‡å­—é¡è‰²
+              bubbleFromUserBorderRadius: 20, // è¨­ç½®ç”¨æˆ¶èŠå¤©æ³¡æ³¡çš„åœ“è§’å¼§åº¦ï¼Œå–®ä½ç‚ºåƒç´ 
+            },
+            store,
+          },
+          document.getElementById("webchat")
+        );
 
-                // ¥[¸ü¤§«eªº²á¤Ñ¬¡°Ê
-                const activities = JSON.parse(sessionStorage.getItem('chatActivities')) || [];
-                activities.forEach(activity => {
-                    store.dispatch({
-                        type: 'DIRECT_LINE/INCOMING_ACTIVITY',
-                        payload: { activity }
-                    });
-                });
-            };
-            // ±N¸}¥»¤¸¯À²K¥[¨ì¤åÀÉ¤¤
-            document.body.appendChild(script);
-        }
-    }, [isOpen, token]);
+        // åŠ è¼‰ä¹‹å‰çš„èŠå¤©æ´»å‹•
+        const activities =
+          JSON.parse(sessionStorage.getItem("chatActivities")) || [];
+        activities.forEach((activity) => {
+          store.dispatch({
+            type: "DIRECT_LINE/INCOMING_ACTIVITY",
+            payload: { activity },
+          });
+        });
+      };
+      // å°‡è…³æœ¬å…ƒç´ æ·»åŠ åˆ°æ–‡æª”ä¸­
+      document.body.appendChild(script);
+    }
+  }, [isOpen, token]);
 
-    return (
-        <div>
-            {/* ´è¬V¤@­Ó¹Ï¤ù«ö¶s¡A¥Î©ó¥´¶}©MÃö³¬²á¤Ñµ¡¤f */}
-            <img
-                style={{ width: '100px', height: '100px' }}
-                src="..\src\assets\images\icons\custom2.png"
-                className="chat-button"
-                title="ºô¯¸«ÈªA <a href='https://zh.pngtree.com/freepng/green-little-brother-boy-customer-service_4533556.html'>png ¹Ï¤ù¨Ó·½©ó zh.pngtree.com/</a>"
-                onClick={toggleChatWindow}
-                alt="Chat Button"
-            />
-            {/* ¦pªG²á¤Ñµ¡¤f¬O¶}±Òªº¡A«h´è¬V²á¤Ñµ¡¤f */}
-            {isOpen && (
-                <div id="chatWindow" className="chat-window">
-                    <div id="webchat" role="main"></div>
-                </div>
-            )}
+  return (
+    <div>
+      {/* æ¸²æŸ“ä¸€å€‹åœ–ç‰‡æŒ‰éˆ•ï¼Œç”¨æ–¼æ‰“é–‹å’Œé—œé–‰èŠå¤©çª—å£ */}
+      <img
+        style={{ width: "150px", height: "150px" }}
+        src="..\src\assets\images\icons\custom2.png"
+        className="chat-button"
+        title="ç¶²ç«™å®¢æœ <a href='https://zh.pngtree.com/freepng/green-little-brother-boy-customer-service_4533556.html'>png åœ–ç‰‡ä¾†æºæ–¼ zh.pngtree.com/</a>"
+        onClick={toggleChatWindow}
+        alt="Chat Button"
+      />
+      {/* å¦‚æœèŠå¤©çª—å£æ˜¯é–‹å•Ÿçš„ï¼Œå‰‡æ¸²æŸ“èŠå¤©çª—å£ */}
+      {isOpen && (
+        <div id="chatWindow" className="chat-window">
+          <div id="webchat" role="main"></div>
+          {/* é—œé–‰æŒ‰éˆ• */}
+          <button className="close-button" onClick={toggleChatWindow}>
+            X
+          </button>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default ChatWindow;
