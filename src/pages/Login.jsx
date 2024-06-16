@@ -7,6 +7,7 @@ import {
 } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import loginForm from "../pages/loginForm";
+//代替fetch
 import axios from "axios";
 const login = () => {
   return (
@@ -31,19 +32,15 @@ const LoginForm = () => {
     event.preventDefault();
 
     let url = `/LogIn/pwdcheck?email=${email}&password=${password}`;
-    try {
-      let response = await fetch(url);
-      let data = await response.json();
+    let response = await fetch(url);
+    let data = await response.json();
 
-      if (data === "True" || data === true) {
-        setRemind("");
-        alert("登入成功");
-        window.location.href = "/Home";
-      } else {
-        setRemind("*帳號/密碼輸入錯誤");
-      }
-    } catch (error) {
-      console.log("Error", error);
+    if (data === "True" || data === true) {
+      setRemind("");
+      alert("登入成功");
+      window.location.href = "/Home";
+    } else {
+      setRemind("*帳號/密碼輸入錯誤");
     }
   };
 
@@ -284,8 +281,21 @@ function Login(props) {
               console.log("Login Failed");
             }}
             cookiePolicy={"single_host_origin"}
-            type="icon"
-            shape="circle"
+            /////////////////////////////////////////////////////////////////
+            render={(renderProps) => {
+              <button
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+                className="icon"
+              >
+                <i className="fa-brands fa-google"></i>登入
+              </button>;
+            }}
+            /////////////////////////////////////////////////////////////////
+
+            // type="icon"
+            // shape="circle"
+            //////////////////////////////////////////////////////////////
             //useOneTap
             // auto_select
             // context="signup "
