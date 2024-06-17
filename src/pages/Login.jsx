@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "./loginstyle.css";
 import {
   GoogleOAuthProvider,
   GoogleLogin,
@@ -17,6 +19,21 @@ const login = () => {
   );
 };
 
+////////////////////////////////////////////////////////
+const container = document.getElementById("container");
+const registerBtn = document.getElementById("register");
+const loginBtn = document.getElementById("login");
+
+registerBtn?.addEventListener("click", () => {
+  container.classList.add("active");
+  alert("fadsgafdsgadfgsdf");
+});
+
+loginBtn?.addEventListener("click", () => {
+  container.classList.remove("active");
+});
+
+////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 // src/components/LoginForm.jsx
 import { useState } from "react";
@@ -165,6 +182,28 @@ const LoginForm = () => {
   );
 };
 const LoginForm2 = () => {
+  ////////////////////////////////////////////////////
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [remind, setRemind] = useState("");
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    let url = `/LogIn/pwdcheck?email=${email}&password=${password}`;
+    let response = await fetch(url);
+    let data = await response.json();
+
+    if (data === "True" || data === true) {
+      setRemind("");
+      alert("登入成功");
+      window.location.href = "/Home";
+    } else {
+      setRemind("*帳號/密碼輸入錯誤");
+    }
+  };
+
+  /////////////////////////////////////////////////////
   const [user, setUser] = React.useState({});
 
   const _useGoogleLogin = useGoogleLogin({
@@ -187,7 +226,7 @@ const LoginForm2 = () => {
         <form>
           <h1>Create Account</h1>
           <div className="social-icons">
-            <a href="#" className="icon">
+            <a href="#" className="icon" onClick={_useGoogleLogin}>
               <i className="fa-brands fa-google"></i>
             </a>
             <a href="#" className="icon">
@@ -202,8 +241,22 @@ const LoginForm2 = () => {
           </div>
           <span>or use your email for registration</span>
           <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p className="reminder" id="reminder">
+            {remind}
+          </p>
           <button type="button">Sign-up</button>
         </form>
       </div>
@@ -226,8 +279,22 @@ const LoginForm2 = () => {
             </a>
           </div>
           <span>or use your email password</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p className="reminder" id="reminder">
+            {remind}
+          </p>
           <a href="#">Forget Your Password?</a>
           <button type="button">Sign-In</button>
         </form>
